@@ -7,7 +7,7 @@ let movies = [];
 
 const fetchMovies = async () => {
   movies = await fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=ed82f4c18f2964e75117c2dc65e2161d&query=${search}`
+    `https://api.spoonacular.com/recipes/complexSearch?api_key=c2fe0498488e40ce93fc845765f9e587&query=${search}`
   ).then((res) => res.json());
   console.log(movies);
 };

@@ -85,8 +85,8 @@ const moviesDisplay = async () => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  //search = searchInput.value;
-  //moviesDisplay();
+  search = searchInput.value;
+  moviesDisplay();
   const create = creation(5,7);
   console.log(bdd)
   console.log(bdd['P1'])

@@ -15,11 +15,19 @@ require('./config/passport')(passport);
 
 const db = require('./config/key').MongoURI;
 
+//const dotenv = require('dotenv');
+//dotenv.config()
+
+
 //------------ Mongo Connection ------------//
 
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
     .then(() => console.log("Successfully connected to MongoDB"))
     .catch(err => console.log(err));
+
+//------------- Connexion server ------------//
+
+
 
 //------------ EJS Configuration ------------//
 app.use(expressLayouts);
@@ -57,5 +65,4 @@ app.use('/', require('./routes/index'));
 app.use('/auth', require('./routes/auth'));
 
 const PORT = process.env.PORT || 3006;
-
 app.listen(PORT, console.log(`Server running on PORT ${PORT}`));

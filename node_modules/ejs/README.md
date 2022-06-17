@@ -55,6 +55,9 @@ for all the passed options. However, be aware that your code could break if we
 add an option with the same name as one of your data object's properties.
 Therefore, we do not recommend using this shortcut.
 
+### Important
+You should never give end-users unfettered access to the EJS render method, If you do so you are using EJS in an inherently un-secure way. 
+
 ### Options
 
   - `cache`                 Compiled functions are cached, requires `filename`
@@ -97,9 +100,9 @@ Therefore, we do not recommend using this shortcut.
     is the included content.
 
 This project uses [JSDoc](http://usejsdoc.org/). For the full public API
-documentation, clone the repository and run `npm run doc`. This will run JSDoc
+documentation, clone the repository and run `jake doc`. This will run JSDoc
 with the proper options and output the documentation to `out/`. If you want
-the both the public & private API docs, run `npm run devdoc` instead.
+the both the public & private API docs, run `jake devdoc` instead.
 
 ### Tags
 
@@ -259,7 +262,7 @@ See the [examples folder](https://github.com/mde/ejs/tree/master/examples) for m
 
 ## CLI
 
-EJS ships with a full-featured CLI. Available options are similar to those used in JavaScript code:
+EJS ships with a full-featured CLI. Options are similar to those used in JavaScript code:
 
   - `-o / --output-file FILE`            Write the rendered output to FILE rather than stdout.
   - `-f / --data-file FILE`              Must be JSON-formatted. Use parsed input from FILE as data for rendering.
@@ -290,8 +293,8 @@ There is a variety of ways to pass the CLI data for rendering.
 Stdin:
 
 ```shell
-$ ./test/fixtures/user_data.json | ./bin/cli.js ./test/fixtures/user.ejs
-$ ./bin/cli.js ./test/fixtures/user.ejs < test/fixtures/user_data.json
+$ ./test/fixtures/user_data.json | ejs ./test/fixtures/user.ejs
+$ ejs ./test/fixtures/user.ejs < test/fixtures/user_data.json
 ```
 
 A data file:

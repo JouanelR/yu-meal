@@ -7,21 +7,22 @@ Created on Sun Jun 19 15:33:02 2022
 import pandas as pd
 from sklearn.metrics.pairwise import sigmoid_kernel
 from sklearn.feature_extraction.text import TfidfVectorizer
-import pymongo 
+#import pymongo
+from collections import Counter
 
-def cleanDf(df,userid,db):
+def cleanDf(df,userid):
     #------------------ recuperer les info nutrition de l'utilisateur dans la bdd -----------------------#
-    users = db["users"]
-    users = users.find_one() 
+    #users = db["users"]
+    #users = users.find_one()
     vegan = False # recuper info bdd
     vegetarian = False # recuper info bdd
-    
+    '''
     for i in users:
         print(i)
-        '''if i == "_id" == userid:
+        if i == "_id" == userid:
             vegan = i["vegan"]
-            vegetarien = i["vegetarian"]'''
-            
+            vegetarien = i["vegetarian"]
+         '''
             
     #------------------ netoyer le dataframe -------------------------#
     if(vegan):
@@ -32,25 +33,25 @@ def cleanDf(df,userid,db):
     else:
         mask = (df['tags'].str.contains('dietary', case=False, na=False)) 
         
-    df =df[mask]
+    return df[mask]
     
-    allergenes = db["alllergenes"]
-    allergenes = allergenes.find_one()
-    
+    #allergenes = db["alllergenes"]
+    #allergenes = allergenes.find_one()
+    '''
     listAllergene = [] #recuper info bdd
     for i in allergenes:
-        if i["user_id"] == user_id:
+        if i["user_id"] == userid:
             listAllergene.append(i["nutriment_id"])
             
     print('|'.join(listAllergene))
     mask = ((df['tags'].str.contains('|'.join(listAllergene),case=False, na=False)) & (df['ingredients'].str.contains('|'.join(listAllergene),case=False, na=False)))
     
-    return df[mask]
+    return df[mask]'''
 
 
 
 
-def creationDf(listArecommander,userid,db):
+def creationDf(listArecommander,userid):
     df = pd.read_csv("RAW_recipes.csv")
     
     #supprimer colones inutiles
@@ -58,7 +59,7 @@ def creationDf(listArecommander,userid,db):
     
     
     
-    df_clean = cleanDf(df,userid,db)
+    df_clean = cleanDf(df,userid)
     
     
     df_sample = df_clean.sample(n = 100)
@@ -93,8 +94,6 @@ def give_sig(df_sample):
 
     tfv_matrix = tfv.fit_transform(df_sample['ingredients'])
 
-    
-    
     sig = sigmoid_kernel(tfv_matrix,tfv_matrix, gamma=.5)
     
     return sig
@@ -113,23 +112,42 @@ def give_rec(recipe_id, sig, df_sample):
 
     recipe_indices = [i[0] for i in sig_scores]
 
-    return df_sample["name"].iloc[recipe_indices]
+    return df_sample["id"].iloc[recipe_indices]
 
+#-------------------------- Similarités entre les Listes --------------------------#
 
+def most_frequent(List):
 
+    #transforme la liste de liste en liste flat
+    flat_list = []
+    for item in List:
+        flat_list.extend(item)
+    print(flat_list)
 
-
-
+    #va compter les occurrences et renvoyer une liste de tuples (x,y); x = valeur, y = occurrence
+    occ = Counter(flat_list)
+    return occ.most_common(5)
 
 
 
 if __name__ == '__main__' :
-    client = pymongo.MongoClient("mongodb://localhost:27017/") 
-    db = client["test"] 
-    df = creationDf([137739,66696],0,db)
+    #client = pymongo.MongoClient("mongodb://localhost:27017/")
+    #db = client["test"]
+    df = creationDf([137739,66696],0)
     sig = give_sig(df)
     rec = give_rec(66696,sig,df)
     print(rec)
-    rec = [rec.iloc[x] for x in range(5)]
-    print(rec)
+    rec = [rec.iloc[x] for x in range(20)]
+
+
+    #liste des indices likés
+    listLikes = []
+    #liste qui va regrouper toutes les listes de similaires
+    multiRec = []
+    for i in listLikes :
+        multiRec.append(give_rec(i,sig,df))
+
+    #trouver les plus récurrents
+    final = most_frequent(multiRec)
+    print(final)
     

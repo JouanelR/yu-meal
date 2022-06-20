@@ -124,10 +124,24 @@ def most_frequent(List):
         flat_list.extend(item)
     print(flat_list)
 
-    #va compter les occurrences et renvoyer une liste de tuples (x,y); x = valeur, y = occurrence
+    # va compter les occurrences et renvoyer une liste de tuples (x,y)
+    # x = valeur, y = occurrence
     occ = Counter(flat_list)
     return occ.most_common(5)
+#-------------------------- Transformer liste des likes en listes de recommendations --------------------------#
 
+def like_to_rec(listLikes):
+
+    multiRec = []
+    for i in listLikes :
+        multiRec.append(give_rec(i,sig,df))
+
+    return multiRec
+
+#-------------------------- Retourner les Dictionnaires --------------------------#
+
+def give_Dic(list_rec):
+    pass
 
 
 if __name__ == '__main__' :
@@ -142,12 +156,10 @@ if __name__ == '__main__' :
 
     #liste des indices likés
     listLikes = []
-    #liste qui va regrouper toutes les listes de similaires
-    multiRec = []
-    for i in listLikes :
-        multiRec.append(give_rec(i,sig,df))
 
+    multiRec = like_to_rec(listLikes)
+    #multiRec2 = [[12162, 4, 3], [1216, 95, 4, 58, 95, 3, 4, 4, 3]]
     #trouver les plus récurrents
-    final = most_frequent(multiRec)
-    print(final)
+    list_rec = most_frequent(multiRec)
+    print(list_rec)
     

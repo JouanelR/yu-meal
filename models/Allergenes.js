@@ -14,6 +14,6 @@ const allergenesSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 
-const Allergenes = mongoose.model('Allergenes', likesSchema);
+const Allergenes = mongoose.model('allergenes', likesSchema);
 
 module.exports = Allergenes;

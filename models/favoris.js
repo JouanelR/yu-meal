@@ -14,6 +14,6 @@ const favorisSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 
-const User = mongoose.model('Favoris', favorisSchema);
+const Favoris = mongoose.model('favoris', favorisSchema);
 
-module.exports = favoris;
+module.exports = Favoris;

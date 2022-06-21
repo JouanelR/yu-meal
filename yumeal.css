@@ -1,0 +1,211 @@
+@font-face {
+  font-family: "font-1";
+  src: url(./assets/LibreBaskerville-Regular.ttf);
+}
+
+* {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bg{
+	background-color: rgb(249, 249, 249); 
+}
+
+.header{
+    letter-spacing: 2px;
+    padding: 10px 16px 0px 16px;
+}
+.nav-bar{
+  position: fixed;
+  width: 100%;
+  top : 0;
+}
+
+.nav{
+	  display: flex;
+    justify-content: space-between;
+    align-items: center;     
+    padding: 1rem 1.5rem;
+    margin : 0;
+    background-color: rgb(249, 249, 249);
+    list-style-type: none;
+    box-shadow: 0px 0px 15px rgb(51, 51, 51);;
+}
+
+.item{
+	margin-right: 50px;
+    flex-grow: 1;
+    text-align: center;
+    font-size: 15px;
+}
+    
+
+.list_item{
+	  padding: 0;
+    margin : 10px 0px 5px 0px;
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+}
+
+li a{
+  text-decoration: none;
+  color: #000;
+}
+
+
+.pict_recipe img {
+  padding: 40px;
+  border-radius: 15%;
+}
+
+.pict_recipe{
+  display: flex;
+  justify-content: center;
+}
+
+.logo img{
+  padding-top: 10px;
+  margin-left: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5px auto; /* 15% from the top and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Bordered form */
+form {
+  border: 3px solid #f1f1f1;
+  font-family: "Lato";
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color:darkgrey;
+  color: white;
+  padding: 14px 20px;
+  size: 120%;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-right: 50px;
+}
+
+.button_acc{
+	margin-top: 150px;
+	text-align: center;
+}
+
+button.account{
+	width: 150px;
+	height: 75px;
+
+}
+
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+#clbtn{
+	text-align: right;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+.avatar {
+  width: 10%;
+  border-radius: 50%;
+
+}
+
+
+/* Add padding to containers */
+.container_log_reg {
+  padding: 16px;
+}
+
+/* The "Forgot password" text */
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
+}
+

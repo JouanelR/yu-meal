@@ -1,0 +1,128 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* Reset / Presets */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --orange-color: #E96000;
+    --grey-color: #CCCCCC;
+    --grey-light-color: #f1f1f1;
+    --main-background-color: white; 
+    --text-color: white; 
+}
+
+html {
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--main-background-color);
+}
+
+/* Global style */
+.welcome__container,
+.login__container,
+.register__container,
+.forgot__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 1rem;
+    padding: 3rem 0;
+    max-width: 40rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    box-shadow: 0px 2px 20px 5px rgb(200, 200, 200);
+}
+
+.welcome__container-logo,
+.login__container-logo,
+.register__container-logo,
+.forgot__container-logo {
+    height: 7rem;
+    margin-bottom: 2rem;
+}
+
+.welcome__container-cta,
+.login__container-cta,
+.register__container-cta,
+.forgot__container-cta {
+    width: 75%;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    border-radius: 0.3rem;
+    text-decoration: none;
+    display: inline-block;
+    margin: 2rem 1rem 0 1rem;
+}
+
+.welcome__container-cta--login,
+.login__container-cta--login,
+.register__container-cta--login,
+.register__container-cta--register,
+.forgot__container-cta--forgot {
+    color: var(--text-color);
+    background: var(--orange-color);
+}
+
+.welcome__container-cta--register,
+.login__container-cta--register  {
+    color: var(--text-color);
+    background: var(--grey-color);
+}
+
+.login__container-input-title,
+.register__container-input-title,
+.forgot__container-input-title {
+    width: 75%;
+    text-align: left;
+    margin: 1rem auto 0 auto;
+}
+
+.login__container-input,
+.register__container-input,
+.forgot__container-input {
+    border: none;
+    height: 2rem;
+    width: 75%;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    border-radius: 0.3rem;
+    display: inline-block;
+    margin: 0.5rem 1rem 0 1rem;
+    background-color: var(--grey-light-color)
+}
+
+.login__container-bottom-link,
+.register__container-bottom-link,
+.forgot__container-bottom-link {
+    margin-top: 2rem;
+}
+
+.login__container-bottom-link > a,
+.register__container-bottom-link > a,
+.forgot__container-bottom-link > a {
+    color: var(--orange-color);
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 0.3rem;
+}
+
+/* Welcome page specific */
+.welcome__container-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}

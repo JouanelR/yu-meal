@@ -1,3 +1,33 @@
-<h1 class="mt-4">Dashboard</h1>
+<h1 class="mt-4">Yu'meal</h1>
 <p class="lead mb-3">Welcome <%= name %></p>
 <a href="/auth/logout" class="btn btn-secondary">Logout</a>
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+        <div class="card card-body text-center">
+            <h1 class="mb-3">
+                <img src="/assets/secure-icon.png" alt="icon" width="20%" />
+                
+            </h1>
+            <h2>
+                Recommandation
+            </h2>
+            
+            <div class="buttons">
+
+                <div class="action_btn">
+    
+                <button name="submit" class="action_btn submit" type="submit" value="Like" onclick="myFunction()">Like</button>
+                <button name="submit" class="action_btn cancel" type="submit" value="Dislike" onclick="myFunction2()">Dislike</button>
+    
+                <p id="saved"></p>
+    
+                </div>
+    
+            </div>
+            
+
+            
+            
+        </div>
+    </div>
+</div>

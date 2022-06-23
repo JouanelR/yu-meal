@@ -1,8 +1,11 @@
+process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+
+
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
 
 //------------ Local User Model ------------//
-const User = require('../models/user');
+const User = require('../models/User');
 
 module.exports = function (passport) {
     passport.use(
@@ -37,4 +40,4 @@ module.exports = function (passport) {
             done(err, user);
         });
     });
-};
+}; 

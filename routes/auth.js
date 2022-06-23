@@ -1,8 +1,11 @@
+process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+
+
 const express = require('express');
 const router = express.Router();
 
 //------------ Importing Controllers ------------//
-const authController = require('../controllers/authController')
+const authController = require('../controllers/authController.js')
 
 //------------ Login Route ------------//
 router.get('/login', (req, res) => res.render('login'));

@@ -1,3 +1,6 @@
+process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+
+
 module.exports = {
     // mysqlx://user_name@localhost:33065
     MongoURI: "mongodb://localhost:27017/"

@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+
 
 //------------ User Schema ------------//
 const UserSchema = new mongoose.Schema({

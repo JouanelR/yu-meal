@@ -67,5 +67,20 @@ app.use(function(req, res, next) {
 app.use('/', require('./routes/index'));
 app.use('/auth', require('./routes/auth'));
 
+
+
+
+app.use((req,res,next)=>{
+    res.setHeader('Access-Control-Allow-Origin','*');
+    res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
+    res.setHeader('Access-Control-Allow-Methods','Content-Type','Authorization');
+    next(); 
+});
+
+
+//------------ Server Configuration ------------//
 const PORT = process.env.PORT || 3006;
 app.listen(PORT, console.log(`Server running on PORT ${PORT}`));
+
+
+

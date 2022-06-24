@@ -1,0 +1,71 @@
+<header>
+    Access-Control-Allow-Origin: *
+    Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+</header>
+
+<h1 class="mt-4">Yu'meal</h1>
+<p class="lead mb-3">Welcome <%= name %></p>
+<a href="/auth/logout" class="btn btn-secondary">Logout</a>
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+        <div class="card card-body text-center">
+            <h1 class="mb-3">
+                <img src="/assets/secure-icon.png" alt="icon" width="20%" />
+                
+            </h1>
+            <h2>
+                Recommandation
+            </h2>
+            
+            <div class="buttons">
+
+                <div class="action_btn">
+    
+                <a><input type=”button” value=”Like” onclick=getDashboard()></a> 
+                <p id="saved"></p>
+    
+                </div>
+
+                <script>
+                    let xhr = null;
+
+                    getXmlHttpRequestObject = function () {
+                        if (!xhr) {
+                            // Create a new XMLHttpRequest object 
+                            xhr = new XMLHttpRequest();
+                        }
+                        return xhr;
+                    };
+                    function dataCallback() {
+                        // Check response is ready or not
+                        if (xhr.readyState == 4 && xhr.status == 200) {
+                            console.log("User data received!");
+                            getDate();
+                            dataDiv = document.getElementById('result-container');
+                            // Set current data text
+                            dataDiv.innerHTML = xhr.responseText;
+                        }
+                    }
+
+
+                    
+
+                    function getDashboard() {
+                        console.log("Get users...");
+                        xhr = getXmlHttpRequestObject();
+                        xhr.onreadystatechange = dataCallback;
+                        // asynchronous requests
+                        xhr.open("GET", "http://localhost:6969/dashboard", true);
+                        // Send the request over the network
+                        xhr.send();
+                    }
+                </script>
+    
+            </div>
+            
+
+            
+            
+        </div>
+    </div>
+</div>

@@ -9,6 +9,7 @@ from sklearn.metrics.pairwise import sigmoid_kernel
 from sklearn.feature_extraction.text import TfidfVectorizer
 #import pymongo
 from collections import Counter
+import re
 
 def cleanDf(df,userid):
     #------------------ recuperer les info nutrition de l'utilisateur dans la bdd -----------------------#
@@ -52,7 +53,7 @@ def cleanDf(df,userid):
 
 
 def creationDf(listArecommander,userid):
-    df = pd.read_csv("RAW_recipes.csv")
+    df = pd.read_csv("RAW_recipes_images.csv")
     
     #supprimer colones inutiles
     df = df.drop(columns=['contributor_id','n_steps',"contributor_id","submitted","steps","description"])
@@ -88,7 +89,17 @@ def creationDf(listArecommander,userid):
         
         
 #-------------------------- creation tfv + sig --------------------------#
-    
+
+
+def map_str_to_list(string):
+    #pattern = re.compile(r'\"(.+)\"')
+    pattern = re.compile(r'\"([^"]+)\"')
+    return pattern.findall(string)
+
+def map_for_series(series: pd.Series):
+    return series.apply(lambda i: map_str_to_list(i))
+
+#----------------------------Creation sigmoid-----------------------------#
 def give_sig(df_sample):    
     tfv = TfidfVectorizer(min_df=3, max_features=None, strip_accents = 'unicode', analyzer = 'word', token_pattern=r'\w{1,}', ngram_range=(1,3), stop_words = 'english')
 
@@ -133,12 +144,13 @@ def most_frequent(List):
 def like_to_rec(listLikes):
 
     multiRec = []
+
     for i in listLikes :
         multiRec.append(give_rec(i,sig,df))
 
     return multiRec
 
-#-------------------------- Retourner les Dictionnaires --------------------------#
+#-------------------------- Retourner +les Dictionnaires --------------------------#
 
 def give_Dic(list_rec):
     pass
@@ -162,4 +174,3 @@ if __name__ == '__main__' :
     #trouver les plus récurrents
     list_rec = most_frequent(multiRec)
     print(list_rec)
-    

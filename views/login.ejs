@@ -1,31 +1,26 @@
-<div class="row mt-5">
-    <div class="col-md-6 m-auto">
-        <div class="card card-body text-center">
-            <h1 class="mb-3">
-                <img src="/assets/secure-icon.png" alt="icon" width="20%" />
-            </h1>
-            <h2>
-                Login
-            </h2>
-            <%- include ("./messages") %>
-            <form action="/auth/login" method="POST">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" />
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" class="form-control"
-                        placeholder="Enter Password" />
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Login</button>
-            </form>
-            <p class="mt-4">
-                New User? <a href="/auth/register">Register</a>
-            </p>
-            <p>
-                Forgot Password? <a href="/auth/forgot">Reset</a>
-            </p>
-        </div>
-    </div>
-</div>
+<%- include ("./messages") %>
+<form class="login__container">
+    <!-- Logo -->
+    <img class="login__container-logo" src="/assets/ninja2.png" alt="Logo" />
+
+    <!-- Subtitle -->
+    <h1 class="login__container-title">Login</h1>
+
+    <!-- Input email -->
+    <p class="login__container-input-title">Email</p>
+    <input id="email" class="login__container-input" type="email" placeholder="Email" />
+
+    <!-- Input password -->
+    <p class="login__container-input-title">Password</p>
+    <input id="password" class="login__container-input" type="password" placeholder="Password" />
+
+    <!-- Login CTA -->
+    <a class="login__container-cta login__container-cta--login" href="menu">Login</a>
+
+    <!-- Bottom links -->
+    <span class="login__container-bottom-link">New User?<a href="/auth/register">Register</a></span>
+    <span class="login__container-bottom-link">Forgot Password?<a href="/auth/forgot">Reset</a></span>
+
+</form>
+</body>
+</html>

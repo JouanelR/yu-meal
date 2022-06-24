@@ -11,7 +11,7 @@ const JWT_KEY = "jwtactive987";
 const JWT_RESET_KEY = "jwtreset987";
 
 //------------ User Model ------------//
-const User = require('../models/user');
+const User = require('../models/User');
 
 //------------ Register Handle ------------//
 exports.registerHandle = (req, res) => {

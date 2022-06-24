@@ -1,0 +1,79 @@
+<%- include('/partials/header') %>
+
+<div class="body">
+    <div class="container">
+        <div class="row">
+            <div class="img_profile">
+                <img class="d-block mx-auto" src="ninja2.png" alt="avatar" width=75px height=auto>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="text-sm-center">
+                <h3>Hello You !</h3>
+                <h6 >Here you can customize your profile as you wish ;)</h6>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 text-sm-center">
+                <p>Are you vegan ?</p>
+                <input type="checkbox" class="vegan" id="vegan">
+                <label for="vegan"></label>  
+            </div>
+
+            <div class="col-lg-4 text-sm-center">
+                <p>Are you vegetarian ?</p>
+                <input type="checkbox" class="vege" id="vege">
+                <label for="vege"></label>
+            </div>
+
+            <div class="col-lg-4 text-sm-center">
+                <p>Are you gluten free ?</p>
+                <input type="checkbox" class="gf" id="gf">
+                <label for="gf"></label>
+            </div>
+
+        </div>
+
+            <div class="row">
+                <div class="text-sm-center">
+                    <p>Are you allergic to any of these :</p>
+                </div>
+                <section class="p-1 d-flex justify-content-center">
+                    <select id= "checkboxes" multiple >
+                            <option value="walnut">Nuts</option>
+                            <option value="seafood">Seafood</option>
+                            <option value="lactose">Lactose</option>
+                            <option value="egg">Egg</option>
+                            
+                    </select>
+                </section>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#checkboxes').multiselect({
+                enableClickableOptGroups: true,
+                includeSelectAllOption:true,
+                nonSelectedText: 'Select your allergy'
+            });
+        });
+
+        $("#vegan").click(function(){
+            $("#vege").click(); 
+            return true; 
+        });
+
+        
+    </script>
+</div>
+
+</body>

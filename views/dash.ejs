@@ -22,6 +22,8 @@
                 <div class="action_btn">
     
                 <a><input type=”button” value=”Like” onclick=getDashboard()></a> 
+                <div id="result-container"></div>
+
                 <p id="saved"></p>
     
                 </div>
@@ -40,14 +42,15 @@
                         // Check response is ready or not
                         if (xhr.readyState == 4 && xhr.status == 200) {
                             console.log("User data received!");
-                            getDate();
+                            console.log(1)
+                        
                             dataDiv = document.getElementById('result-container');
                             // Set current data text
                             dataDiv.innerHTML = xhr.responseText;
                         }
                     }
 
-
+                   
                     
 
                     function getDashboard() {

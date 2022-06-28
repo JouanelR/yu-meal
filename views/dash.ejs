@@ -40,7 +40,7 @@
                         }
                         return xhr;
                     };
-                    function dataCallback() {
+                    async function dataCallback() {
                         // Check response is ready or not
                         if (xhr.readyState == 4 && xhr.status == 200) {
                             console.log("User data received!");
@@ -51,7 +51,7 @@
                             dataDiv.innerHTML = xhr.responseText;
                         }
                     }
-                    function sendDataCallback() {
+                    async function sendDataCallback() {
                         // Check response is ready or not
                         if (xhr.readyState == 4 && xhr.status == 201) {
                             console.log("Creation data received");
@@ -63,7 +63,7 @@
                         }
                     }
 
-                    function sendData() {
+                    async function sendData() {
                         dataToSend = document.getElementById('douille').value;
                         if (!dataToSend) {
                             console.log("Data is empty.");
@@ -79,11 +79,12 @@
                         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
                         // Send the request over the network
                         xhr.send(JSON.stringify({"data": dataToSend}));
+                        console.log("Data sent!");
                     }
                    
                     
-                    function getDashboard() {
-                        sendData();
+                    async function getDashboard() {
+                        await sendData();
                         console.log("Get users...");
                         xhr = getXmlHttpRequestObject();
                         xhr.onreadystatechange = dataCallback;

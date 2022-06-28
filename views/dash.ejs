@@ -13,26 +13,26 @@
                 
             </h1>
             <h2>
-                Recommandation
+                <%= id %>
+                <a><input type=”button” value=<%= id %> id = "douille"></a> 
             </h2>
-            
+            <h2>
+                <div>Recommandation</div>
+            </h2>
             <div class="buttons">
 
-                <div class="action_btn">
-    
-                <a><input type=”button” value=”Like” onclick=getDashboard()></a> 
+            <div class="action_btn">
+            <a><input type=”button” value=”Like” onclick=getDashboard()></a> 
                 <div id="result-container"></div>
 
                 <p id="saved"></p>
     
                 </div>
                 
-                <script src="require.js">
+                <<script>
                     
-                    const User = require('../models/User');
-
+                    //const User = require('../models/User');
                     let xhr = null;
-
                     getXmlHttpRequestObject = function () {
                         if (!xhr) {
                             // Create a new XMLHttpRequest object 
@@ -62,8 +62,9 @@
                             dataDiv.innerHTML = xhr.responseText;
                         }
                     }
+
                     function sendData() {
-                        dataToSend = "1234";
+                        dataToSend = document.getElementById('douille').value;
                         if (!dataToSend) {
                             console.log("Data is empty.");
                             return;
@@ -72,16 +73,17 @@
                         xhr = getXmlHttpRequestObject();
                         xhr.onreadystatechange = sendDataCallback;
                         // asynchronous requests
+                        console.log("Sending request to server...");
                         xhr.open("POST", "http://localhost:6969/dashboard", true);
+                        console.log("Receving data...");
                         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
                         // Send the request over the network
                         xhr.send(JSON.stringify({"data": dataToSend}));
                     }
                    
                     
-
                     function getDashboard() {
-
+                        sendData();
                         console.log("Get users...");
                         xhr = getXmlHttpRequestObject();
                         xhr.onreadystatechange = dataCallback;
@@ -90,9 +92,7 @@
                         // Send the request over the network
                         xhr.send();
                     }
-                </script>
-    
-            </div>
+                </script>-->
             
 
             

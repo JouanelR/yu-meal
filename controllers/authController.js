@@ -13,6 +13,51 @@ const JWT_RESET_KEY = "jwtreset987";
 //------------ User Model ------------//
 const User = require('../models/User');
 
+exports.dashboardRecomendation = (req, res) => {
+    const id = req.params.id;  
+    /*User.findById(id).then(user => {
+        const { name, email, password, password2 } = user;
+    }).catch(err => console.log(err));*/
+
+    let xhr = null;
+
+    if (!xhr) {
+        // Create a new XMLHttpRequest object 
+        xhr = new XMLHttpRequest();
+    }
+
+    xhr = getXmlHttpRequestObject();
+
+    xhr.onreadystatechange = function () {
+        dataToSend = "1234"; // dataToSend = user.likes
+        if (!dataToSend) {
+            console.log("Data is empty.");
+            return;
+        }
+        console.log("Sending data: " + dataToSend);
+        xhr = getXmlHttpRequestObject();
+        xhr.onreadystatechange = sendDataCallback = function () {
+            if (xhr.readyState == 4 && xhr.status == 201) {
+                console.log("Creation data received");
+                
+            
+                dataDiv = document.getElementById('result-container');
+                // Set current data text
+                dataDiv.innerHTML = xhr.responseText;
+            }
+        }
+        // asynchronous requests
+        xhr.open("POST", "http://localhost:6969/dashboard", true);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        // Send the request over the network
+        xhr.send(JSON.stringify({"data": dataToSend}));
+    }
+
+    xhr.open("GET", "http://localhost:6969/dashboard", true);
+    xhr.send();
+}
+
+
 //------------ Register Handle ------------//
 exports.registerHandle = (req, res) => {
     const { name, email, password, password2 } = req.body;

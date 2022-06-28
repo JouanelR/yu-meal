@@ -33,6 +33,7 @@
     "nodemailer": "^6.4.11",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
+    "require": "^2.4.20",
     "requirejs": "^2.3.6"
   },
   "devDependencies": {

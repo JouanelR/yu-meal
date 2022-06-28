@@ -9,10 +9,10 @@ from sklearn.metrics.pairwise import sigmoid_kernel
 from sklearn.feature_extraction.text import TfidfVectorizer
 #import pymongo
 from collections import Counter
-import re
+
 
 def cleanDf(df,userid):
-    #------------------ recuperer les info nutrition de l'utilisateur dans la bdd -----------------------#
+    #------------------ recuperer les info nutrition de l'utilisateur dans la bdd -------------------#
     #users = db["users"]
     #users = users.find_one()
     vegan = False # recuper info bdd
@@ -91,14 +91,6 @@ def creationDf(listArecommander,userid):
 #-------------------------- creation tfv + sig --------------------------#
 
 
-def map_str_to_list(string):
-    #pattern = re.compile(r'\"(.+)\"')
-    pattern = re.compile(r'\"([^"]+)\"')
-    return pattern.findall(string)
-
-def map_for_series(series: pd.Series):
-    return series.apply(lambda i: map_str_to_list(i))
-
 #----------------------------Creation sigmoid-----------------------------#
 def give_sig(df_sample):    
     tfv = TfidfVectorizer(min_df=3, max_features=None, strip_accents = 'unicode', analyzer = 'word', token_pattern=r'\w{1,}', ngram_range=(1,3), stop_words = 'english')
@@ -138,7 +130,8 @@ def most_frequent(List):
     # va compter les occurrences et renvoyer une liste de tuples (x,y)
     # x = valeur, y = occurrence
     occ = Counter(flat_list)
-    return occ.most_common(5)
+    return occ.most_common(4)
+
 #-------------------------- Transformer liste des likes en listes de recommendations --------------------------#
 
 def like_to_rec(listLikes):
@@ -152,25 +145,35 @@ def like_to_rec(listLikes):
 
 #-------------------------- Retourner +les Dictionnaires --------------------------#
 
-def give_Dic(list_rec):
-    pass
+def give_Dic(list_rec,df):
+    list_dict = []
+    for i in list_rec:
+        print(i)
+        list_dict.extend(df[df['id']==i].to_dict('records'))
+
+        print("test", df[df['id']==i])
+    return list_dict
 
 
 if __name__ == '__main__' :
     #client = pymongo.MongoClient("mongodb://localhost:27017/")
     #db = client["test"]
-    df = creationDf([137739,66696],0)
+    df = creationDf([137739,496],0)
     sig = give_sig(df)
-    rec = give_rec(66696,sig,df)
+    rec = give_rec(496,sig,df)
     print(rec)
     rec = [rec.iloc[x] for x in range(20)]
 
 
     #liste des indices likés
     listLikes = []
-
     multiRec = like_to_rec(listLikes)
     #multiRec2 = [[12162, 4, 3], [1216, 95, 4, 58, 95, 3, 4, 4, 3]]
     #trouver les plus récurrents
-    list_rec = most_frequent(multiRec)
-    print(list_rec)
+    #list_rec = most_frequent(multiRec2)
+
+    print("Dict")
+    x = give_Dic([137739,137739,292531], df)
+    print("X = ",x)
+
+    print("Nom : ", x[0]["Images Solo"])

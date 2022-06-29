@@ -148,28 +148,39 @@ def give_Dic(list_rec,df):
         print("test", df[df['id']==i])
     return list_dict
 
+#-------------------------Liste vide ou non---------------------------#
+
+def list_empty(list):
+    emptyList = []
+
+    if list == emptyList:
+        return True
+    else:
+        return False
 
 if __name__ == '__main__' :
     temps = time.time()
     #client = pymongo.MongoClient("mongodb://localhost:27017/")
     #db = client["test"]
-    df = creationDf([137739,496,4875],0)
+    df = creationDf([137739,496,9447],0)
     sig = give_sig(df)
     print(temps-time.time())
-    rec = give_rec(496,sig,df)
+    rec = give_rec(9447,sig,df)
     rec = [rec.iloc[x] for x in range(20)]
     print("rec")
     print(rec)
 
     #liste des indices likés
     listLikes = []
+    print(list_empty(listLikes))
     multiRec = like_to_rec(listLikes)
     #multiRec2 = [[12162, 4, 3], [1216, 95, 4, 58, 95, 3, 4, 4, 3]]
     #trouver les plus récurrents
     #list_rec = most_frequent(multiRec2)
 
     print("Dict")
-    x = give_Dic([137739,496,4875], df)
+    x = give_Dic([137739,496,9447], df)
     print("X = ",x)
 
-    print("Nom : ", x[2]["Images Solo"])
+    print("Image : ", x[2]["Images Solo"])
+#%%

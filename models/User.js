@@ -39,6 +39,41 @@ const UserSchema = new mongoose.Schema({
   vegetarien: {
     type: Boolean,
     default: false
+  },
+
+  egg: {
+    type: Boolean,
+    default: false
+  },
+
+  lactose: {
+    type: Boolean,
+    default: false
+  },
+
+  nuts: {
+    type: Boolean,
+    default: false
+  },
+
+  peanuts: {
+    type: Boolean,
+    default: false
+  },
+
+  seafood: {
+    type: Boolean,
+    default: false
+  },
+
+  sesame: {
+    type: Boolean,
+    default: false
+  },
+
+  soy: {
+    type: Boolean,
+    default: false
   }
 }, { timestamps: true });
 

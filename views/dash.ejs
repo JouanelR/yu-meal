@@ -29,7 +29,7 @@
     
                 </div>
                 
-                <<script>
+                <script>
                     
                     //const User = require('../models/User');
                     let xhr = null;
@@ -40,7 +40,7 @@
                         }
                         return xhr;
                     };
-                    async function dataCallback() {
+                    function dataCallback() {
                         // Check response is ready or not
                         if (xhr.readyState == 4 && xhr.status == 200) {
                             console.log("User data received!");
@@ -51,7 +51,7 @@
                             dataDiv.innerHTML = xhr.responseText;
                         }
                     }
-                    async function sendDataCallback() {
+                    function sendDataCallback() {
                         // Check response is ready or not
                         if (xhr.readyState == 4 && xhr.status == 201) {
                             console.log("Creation data received");
@@ -63,7 +63,7 @@
                         }
                     }
 
-                    async function sendData() {
+                    function sendData() {
                         dataToSend = document.getElementById('douille').value;
                         if (!dataToSend) {
                             console.log("Data is empty.");
@@ -81,19 +81,25 @@
                         xhr.send(JSON.stringify({"data": dataToSend}));
                         console.log("Data sent!");
                     }
-                   
-                    
-                    async function getDashboard() {
-                        await sendData();
-                        console.log("Get users...");
+                   function getRecomendation(){
+                        console.log("Sending request to server...");
                         xhr = getXmlHttpRequestObject();
                         xhr.onreadystatechange = dataCallback;
                         // asynchronous requests
                         xhr.open("GET", "http://localhost:6969/dashboard", true);
+                        console.log("Receving data...");
+                        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
                         // Send the request over the network
                         xhr.send();
+                        console.log("Data sent!");
                     }
-                </script>-->
+                    
+                    function getDashboard() {
+                        sendData();
+                        //getRecomendation();
+                    }
+
+                </script>
             
 
             

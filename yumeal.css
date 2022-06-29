@@ -1,19 +1,40 @@
 
-
-
 .navbar{
   width: 100%;
   box-shadow: 0px 0px 14px rgb(110, 110, 110);
-  background-color: #ff6a00;
+  background: linear-gradient(135deg, rgb(249, 33, 33), rgb(255, 64, 0),rgb(255, 98, 0)
+  );
+  background-size: 400%;
+  animation: anim 10s infinite alternate;
+}
+
+@keyframes anim {
+  from {
+    background-position:0%;
+  }
+  to{
+    background-position: 100%;
+  }
+  
 }
 
 .container{
-width: 100%; 
+  width: 100%; 
+  margin-bottom: 15px;
 }
 
+.content
+{
+  margin-top : 200px;
+}
+
+footer{
+  margin-top: 80px;
+}
+
+
 .img_profile img  {
-padding-top: 150px;
-border-radius: 15px;
+  border-radius: 15px;
 }
 
 .row{
@@ -52,7 +73,6 @@ input[type="checkbox"].vegan:checked + label::before {
 }
 
 
-
 input[type="checkbox"].vege {
   display: none;
 }
@@ -83,7 +103,9 @@ input[type="checkbox"].vege:checked + label::before {
   margin-left: 1.5rem ;
 }
 
-
+select{
+  padding: 10px 200px 100px;
+}
 
 
 
@@ -138,8 +160,7 @@ input[type="checkbox"].gf:checked + label::before {
 }
 
 .navbar .navbar-nav > a:hover, .navbar .navbar-nav > a:focus {
-  color:  #e95c36;
-  text-shadow: 0 0 4px rgba(255,255,255,0.3);
+  color:  rgb(187,25,25)  ;
 }
 .navbar .navbar-nav > a > i {
   display: block;

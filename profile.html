@@ -5,109 +5,130 @@
     <title>Accueil - Yumeal</title>
 
     <!-- CSS only -->
+    <!-- body-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="yumeal.css" />
     
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> 
-    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Nav joli-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Icons Header-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Multiselect-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+
     </head>
 
-<body class="bg">
 
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <div class="logo" >
-                    <a href="menu.html"><img src='logv3.png' height=100px width=auto></a>
-            </div>
-            <div class="navbar-nav ml-auto">
-                <a href="menu.html" class="nav-item nav-link"><i class="fa fa-cutlery"></i><span>Time to Eat</span></a>
-                <a href="#" class="nav-item nav-link"><i class="fa fa-bookmark"></i><span>Saved</span></a>
-                <a href="profile.html" class="nav-item nav-link"><i class="fa fa-user-circle-o"></i><span> Profile</span></a>
-            </div>
-        </div>
-    </nav>
-        <div class="bg-white">
-            <div class="container">
-                <div class="row">
-                    <div class="img_profile">
-                        <img class="d-block mx-auto" src="ninja2.png" alt="avatar" width=75px height=auto>
-                    </div>
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container" id="Grahim">
+                <div class="logo" >
+                        <a href="menu.html"><img src='logv4.png' height=90px width=auto></a>
                 </div>
-                
-                <div class="row">
-                    <div class="text-sm-center">
-                        <h3>Hello You !</h3>
-                        <h6 >Here you can customize your profile as you wish ;)</h6>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-4 text-sm-center">
-                        <p>Are you vegan ?</p>
-                        <input type="checkbox" class="vegan" id="vegan">
-                        <label for="vegan"></label>  
-                    </div>
-
-                    <div class="col-lg-4 text-sm-center">
-                        <p>Are you vegetarian ?</p>
-                        <input type="checkbox" class="vege" id="vege">
-                        <label for="vege"></label>
-                    </div>
-
-                    <div class="col-lg-4 text-sm-center">
-                        <p>Are you gluten free ?</p>
-                        <input type="checkbox" class="gf" id="gf">
-                        <label for="gf"></label>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div class="text-sm-center">
-                        <p>Are you allergic to any of these :</p>
-                    </div>
-                    <section class="p-1 d-flex justify-content-center">
-                        <select id= "checkboxes" multiple >
-                                <option value="walnut">Nuts</option>
-                                <option value="seafood">Seafood</option>
-                                <option value="lactose">Lactose</option>
-                                <option value="egg">Egg</option>
-                                
-                        </select>
-                    </section>
+                <div class="navbar-nav ml-auto">
+                    <a href="menu.html" class="nav-item nav-link"><i class="fa fa-cutlery"></i><span>Time to Eat</span></a>
+                    <a href="#" class="nav-item nav-link"><i class="fa fa-bookmark"></i><span>Saved</span></a>
+                    <a href="profile.html" class="nav-item nav-link"><i class="fa fa-user-circle-o"></i><span> Profile</span></a>
                 </div>
             </div>
-        </div>
+        </nav>
 
 
-                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
-                <script type="text/javascript">
-                    $(function(){
-                        $('#checkboxes').multiselect({
-                            enableClickableOptGroups: true,
-                            includeSelectAllOption:true,
-                            nonSelectedText: 'Select your allergy'
-                        });
-                    });
 
-                    $("#vegan").click(function(){
-                        $("#vege").click(); 
-                        return true; 
-                    });
+<body class="bg" style="background-color: rgb(238, 238, 238)">
 
-                    
-                </script>
+    <div class="container">
+        <div class="rounded-3" style="background-color: rgb(255, 255, 255)">
+            <div class="row content">
+                <div class="img_profile">
+                    <img class="d-block mx-auto" src="ninja2.png" alt="avatar" width=75px >
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="text-sm-center">
+                    <h3>Hello You !</h3>
+                    <h6 >Here you can customize your profile as you wish ;)</h6>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 text-sm-center">
+                    <p>Are you <span style="color: #E96000;">vegan</span> ?</p>
+                    <input type="checkbox" class="vegan" id="vegan">
+                    <label for="vegan"></label>  
+                </div>
+
+                <div class="col-lg-6 text-sm-center">
+                    <p>Are you <span style="color: #E96000;">vegetarian</span> ?</p>
+                    <input type="checkbox" class="vege" id="vege">
+                    <label for="vege"></label>
+                </div>
+            
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-6 text-sm-center">
+                    <p>Are you <span style="color: #E96000;">gluten free</span> ?</p>
+                    <input type="checkbox" class="gf" id="gf">
+                    <label for="gf"></label>
+                </div>
+
+                <div class="col-lg-6 text-sm-center">
+                    <p>Do you eat <span style="color: #E96000;">meat</span> ?</p>
+                    <input type="checkbox" class="vege" id="vege">
+                    <label for="vege"></label>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="text-sm-center">
+                    <p>Are you <span style="color: #E96000;">allergic</span> to any of these ?</p>
+
+                </div>
+                <section class=" d-flex justify-content-center">
+                    <select size="3" id= "checkboxes" multiple>
+                        <option value="egg">Egg</option>
+                        <option value="lactose">Lactose</option>
+                        <option value="nuts">Nuts</option>
+                        <option value="peanuts">Peanuts</option>                                 
+                        <option value="seafood">Seafood</option>
+                        <option value="sesame">Sesame</option>                                    
+                        <option value="soy">Soy</option>
+                    </select>
+                </section>
             </div>
         </div>
     </div>
 
+
+    <script type="text/javascript">
+        $('#checkboxes').multiselect({
+            enableClickableOptGroups: true,
+            nonSelectedText: 'Select your allergy'
+        });
+        
+
+    </script>
+    <div id = "text_for_allergy" style="color: rgb(238, 238, 238); display: none;">
+
+    </div>
 </body>
+
+<footer class="text-center text-white" style="background-color: #f8a371">
+    <div class="container pt-4 ">
+        <section class="mb-4">
+            <h3 class="follow">Follow us</h3>
+        </section>
+    </div>
+    <div class="text-center text-dark p-3" style="background-color: #f8a371"> <!--rgba(0, 100, 0, 0.2);-->
+        © 2022 Copyright:
+        <a class="text-dark" href="https://mdbootstrap.com/">Changer le lien</a>
+    </div>
+</footer>

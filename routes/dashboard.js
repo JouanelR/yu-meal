@@ -10,9 +10,16 @@ const router = express.Router();
 const authController = require('../controllers/authController.js')
 
 router.get('/dashboard');
-//router.post('/dashboard', authController.dashboardRecomendation);
+router.post('/dashboard', authController.dashboardRecomendation);
 
-let xhr = null;
+function newLikes (){
+    const newLike = new Like({
+        id_recette: 66696,
+        id_user: document.getElementById('douille').value
+    });
+}
+
+
 getXmlHttpRequestObject = function () {
     if (!xhr) {
         // Create a new XMLHttpRequest object 
@@ -44,7 +51,7 @@ function sendDataCallback() {
 }
 
 function sendData() {
-    dataToSend = id;
+    dataToSend = document.getElementById('douille').value;
     if (!dataToSend) {
         console.log("Data is empty.");
         return;
@@ -59,16 +66,22 @@ function sendData() {
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     // Send the request over the network
     xhr.send(JSON.stringify({"data": dataToSend}));
+    console.log("Data sent!");
 }
-
-
-function getDashboard() {
-    sendData();
-    /*console.log("Get users...");
+function getRecomendation(){
+    console.log("Sending request to server...");
     xhr = getXmlHttpRequestObject();
     xhr.onreadystatechange = dataCallback;
     // asynchronous requests
     xhr.open("GET", "http://localhost:6969/dashboard", true);
+    console.log("Receving data...");
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     // Send the request over the network
-    xhr.send();*/
+    xhr.send();
+    console.log("Data sent!");
+}
+
+function getDashboard() {
+    sendData();
+    //getRecomendation();
 }

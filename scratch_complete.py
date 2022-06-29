@@ -8,52 +8,57 @@ import pandas as pd
 from sklearn.metrics.pairwise import sigmoid_kernel
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pymongo 
-from flask import Flask
+import json
+from flask import Flask,request,Response
 from flask_cors import CORS
-
 from flask import jsonify
-
+#import request
 app = Flask(__name__)
 CORS(app)
 
 
 def cleanDf(df,userid,db):
     #------------------ recuperer les info nutrition de l'utilisateur dans la bdd -----------------------#
-    users = db["users"]
-    users = users.find_one() 
-    vegan = False # recuper info bdd
-    vegetarian = False # recuper info bdd
+    mycol = db["users"]
+    user = mycol.find_one({},{"_id":userid})
+    print(user)
     
-    '''for i in users:
-        print(i)
-        if i == "_id" == userid:
-            vegan = i["vegan"]
-            vegetarien = i["vegetarian"]'''
-            
+    mask = (df['tags'].str.contains('dietary', case=False, na=False)) 
+    df = df[mask]
             
     #------------------ netoyer le dataframe -------------------------#
-    if(vegan):
-        mask = (df['tags'].str.contains('dietary|vegan', case=False, na=False)) 
-    elif(vegetarian):
-        mask = (df['tags'].str.contains('dietary|vegetarian', case=False, na=False)) 
-
-    else:
-        mask = (df['tags'].str.contains('dietary', case=False, na=False)) 
-        
-    df =df[mask]
+    if(user["vegan"]):
+        mask = (df['tags'].str.contains('vegan', case=False, na=False)) 
+        df = df[mask]
+    if(user["gluten_free"]):
+        mask = (df['tags'].str.contains('gluten_free', case=False, na=False)) 
+        df = df[mask]
+    if(user["vegetarien"]):
+        mask = (df['tags'].str.contains('vegetarien', case=False, na=False)) 
+        df = df[mask]
+    if(user["egg"]):
+        mask = (not df['tags'].str.contains('egg', case=False, na=False)) 
+        df = df[mask]
+    if(user["lactose"]):
+        mask = (not df['tags'].str.contains('lactose', case=False, na=False)) 
+        df = df[mask]
+    if(user["nuts"]):
+        mask = (not df['tags'].str.contains('nuts', case=False, na=False)) 
+        df = df[mask]
+    if(user["peanuts"]):
+        mask = (not df['tags'].str.contains('peanuts', case=False, na=False)) 
+        df = df[mask]
+    if(user["seafood"]):
+        mask = (not df['tags'].str.contains('seafood', case=False, na=False)) 
+        df = df[mask]
+    if(user["sesame"]):
+        mask = (not df['tags'].str.contains('sesame', case=False, na=False)) 
+        df = df[mask]
+    if(user["soy"]):
+        mask = (not df['tags'].str.contains('soy', case=False, na=False)) 
+        df = df[mask]
     
-    allergenes = db["alllergenes"]
-    allergenes = allergenes.find_one()
-    
-    listAllergene = [] #recuper info bdd
-    '''for i in allergenes:
-        if i["user_id"] == userid:
-            listAllergene.append(i["nutriment_id"])'''
-            
-    #print('|'.join(listAllergene))
-    #mask = ((df['tags'].str.contains('|'.join(listAllergene),case=False, na=False)) & (df['ingredients'].str.contains('|'.join(listAllergene),case=False, na=False)))
-    
-    return df[mask]
+    return df
 
 
 
@@ -123,19 +128,41 @@ def give_rec(recipe_id, sig, df_sample):
 
     return df_sample["name"].iloc[recipe_indices]
 
-@app.route("/dashboard",methods=["GET"])
+@app.route("/dashboard",methods=["GET","POST"])
 def getDashboard():
+    '''client = pymongo.MongoClient("mongodb://localhost:27017/") 
+    db = client["test"] 
+    df = creationDf([137739,66696],0,db)
+    sig = give_sig(df)
+    rec = give_rec(66696,sig,df)
+    rec = [rec.iloc[x] for x in range(5)]'''
+    
+    if request.method == "GET":
+        print(1)
+        print(jsonify(response=1))
+        return jsonify(response=1)
+    
+    
+    if request.method == "POST":
+        print(2)
+        received_data = request.get_json()
+        message = received_data['data']
+        print(message)
+        
+        return_data = {
+            "status": "success",
+            "message": f"received: {allRecomendation(message)}"
+        }
+        return Response(response=json.dumps(return_data), status=201)
+
+def allRecomendation(idUser):
     client = pymongo.MongoClient("mongodb://localhost:27017/") 
     db = client["test"] 
     df = creationDf([137739,66696],0,db)
     sig = give_sig(df)
     rec = give_rec(66696,sig,df)
     rec = [rec.iloc[x] for x in range(5)]
-    print(rec)
-    print(123456,jsonify(response_value_1=rec))
-    return jsonify(response_value_1=1,response_value_2="value")
-    
-
+    return rec
 
 
 if __name__ == "__main__":

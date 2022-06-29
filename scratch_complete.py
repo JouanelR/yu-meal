@@ -1,15 +1,9 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jun 19 15:33:02 2022
-
-@author: jouanel romain
-"""
 import pandas as pd
 from sklearn.metrics.pairwise import sigmoid_kernel
 from sklearn.feature_extraction.text import TfidfVectorizer
 #import pymongo
 from collections import Counter
-
+import time
 
 def cleanDf(df,userid):
     #------------------ recuperer les info nutrition de l'utilisateur dans la bdd -------------------#
@@ -143,7 +137,7 @@ def like_to_rec(listLikes):
 
     return multiRec
 
-#-------------------------- Retourner +les Dictionnaires --------------------------#
+#-------------------------- Retourner les Dictionnaires avec les rangs --------------------------#
 
 def give_Dic(list_rec,df):
     list_dict = []
@@ -156,14 +150,16 @@ def give_Dic(list_rec,df):
 
 
 if __name__ == '__main__' :
+    temps = time.time()
     #client = pymongo.MongoClient("mongodb://localhost:27017/")
     #db = client["test"]
-    df = creationDf([137739,496],0)
+    df = creationDf([137739,496,4875],0)
     sig = give_sig(df)
+    print(temps-time.time())
     rec = give_rec(496,sig,df)
-    print(rec)
     rec = [rec.iloc[x] for x in range(20)]
-
+    print("rec")
+    print(rec)
 
     #liste des indices likés
     listLikes = []
@@ -173,7 +169,7 @@ if __name__ == '__main__' :
     #list_rec = most_frequent(multiRec2)
 
     print("Dict")
-    x = give_Dic([137739,137739,292531], df)
+    x = give_Dic([137739,496,4875], df)
     print("X = ",x)
 
-    print("Nom : ", x[0]["Images Solo"])
+    print("Nom : ", x[2]["Images Solo"])

@@ -1,0 +1,35 @@
+
+    
+            <%- include ("./messages") %>
+            <form action="/auth/login" method="POST" class="login__container">
+
+                        
+                <!-- Subtitle-->
+                <h2 class="login__container-title">
+                    Login
+                </h2>
+
+                <!-- Avatar -->
+                <img class="login__container-logo" src="/assets/ninja2.png" alt="Logo" />
+
+                <!-- Input email-->
+                <label for="login__container-input-title">Email</label>
+                <input type="email" id="email" name="email" class="login__container-input" placeholder="Enter Email" />
+            
+                <!-- Input password-->
+                <label for="login__container-input-title">Password</label>
+                <input type="password" id="password" name="password" class="login__container-input" placeholder="Enter Password" />
+
+                <!-- Login CTA-->
+                <button type="submit" class="login__container-cta login__container-cta--login btn btn-primary btn-block" href="menu">Login</button>
+                <span class ="login__container-bottom-link">
+                    New User? <a href="/auth/register">Register</a>
+                </span>
+                <span class ="login__container-bottom-link">
+                    Forgot Password? <a href="/auth/forgot">Reset</a>
+                </span>
+            </form>
+
+        </div>
+    </div>
+</div>

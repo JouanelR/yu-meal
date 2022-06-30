@@ -1,0 +1,104 @@
+    <%- include("partials/header.ejs"); %>
+
+    <h1 class="mt-4">Yu'meal</h1>
+    <p class="lead mb-3">Welcome <%= name %></p>
+    <a href="/auth/logout" class="btn btn-secondary">Logout</a>
+    <div class="row mt-5">
+        <div class="col-md-6 m-auto">
+            <div class="card card-body text-center">
+                <h1 class="mb-3">
+                    <img src="https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/19/02/61/picxofI9F.jpg" alt="icon" width="80%" />
+                    
+                <h2>
+                    <%= id %>
+                    <a><input type=”button” value=<%= id %> id = "douille"></a> 
+                </h2>
+                <h2>
+                    <div>Recommandation</div>
+                </h2>
+                <div class="buttons">
+
+                <div class="action_btn">
+                    <a><input type=”button” value=”Like” onclick=getDashboard()></a> 
+                    <div id="result-container"></div>
+                    <p id="saved"></p>
+                </div>
+                    
+                    <script>
+                        
+                        //const User = require('../models/User');
+                        let xhr = null;
+                        getXmlHttpRequestObject = function () {
+                            if (!xhr) {
+                                // Create a new XMLHttpRequest object 
+                                xhr = new XMLHttpRequest();
+                            }
+                            return xhr;
+                        };
+                        function dataCallback() {
+                            // Check response is ready or not
+                            if (xhr.readyState == 4 && xhr.status == 200) {
+                                console.log("User data received!");
+                                console.log(1)
+                            
+                                dataDiv = document.getElementById('result-container');
+                                // Set current data text
+                                dataDiv.innerHTML = xhr.responseText;
+                            }
+                        }
+                        function sendDataCallback() {
+                            // Check response is ready or not
+                            if (xhr.readyState == 4 && xhr.status == 201) {
+                                console.log("Creation data received");
+                                
+                            
+                                dataDiv = document.getElementById('result-container');
+                                // Set current data text
+                                dataDiv.innerHTML = xhr.responseText;
+                            }
+                        }
+
+                        function sendData() {
+                            dataToSend = document.getElementById('douille').value;
+                            if (!dataToSend) {
+                                console.log("Data is empty.");
+                                return;
+                            }
+                            console.log("Sending data: " + dataToSend);
+                            xhr = getXmlHttpRequestObject();
+                            xhr.onreadystatechange = sendDataCallback;
+                            // asynchronous requests
+                            console.log("Sending request to server...");
+                            xhr.open("POST", "http://localhost:6969/dashboard", true);
+                            console.log("Receving data...");
+                            xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                            // Send the request over the network
+                            xhr.send(JSON.stringify({"data": dataToSend}));
+                            console.log("Data sent!");
+                        }
+                        function getRecomendation(){
+                            console.log("Sending request to server...");
+                            xhr = getXmlHttpRequestObject();
+                            xhr.onreadystatechange = dataCallback;
+                            // asynchronous requests
+                            xhr.open("GET", "http://localhost:6969/dashboard", true);
+                            console.log("Receving data...");
+                            xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                            // Send the request over the network
+                            xhr.send();
+                            console.log("Data sent!");
+                        }
+                        
+                        function getDashboard() {
+                            sendData();
+                            //getRecomendation();
+                        }
+
+                    </script>
+                </div>  
+            </div>
+        </div>
+    </div>
+
+<%- include("partials/footer.ejs"); %>
+

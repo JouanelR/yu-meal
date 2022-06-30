@@ -1,0 +1,35 @@
+
+            
+            <%- include ("./messages") %>
+            <form action="/auth/reset/<%= id %>"  method="POST" class="register__container">
+                
+            <!-- Subtitle  -->
+            <h2 class="register__container-title">
+                Reset Password
+            </h2>
+
+            <!--Avatar -->
+                <img src="/assets/ninja2.png" alt="Logo" class="register__container-logo" />
+            
+
+            <!-- Input name  -->
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="register__container-input" placeholder="Enter Password"
+                      value="<%= typeof password != 'undefined' ? password : '' %>" />
+            
+            <!-- Input email -->
+            <label for="password2">Confirm Password</label>
+            <input type="password" id="password2" name="password2" class="register__container-input" placeholder="Confirm Password"
+                      value="<%= typeof password2 != 'undefined' ? password2 : '' %>" />
+            
+            <!-- Reset password CTA-->
+            <button type="submit" class="btn btn-primary btn-block register__container-cta register__container-cta--register">Reset Password</button>
+            
+            <span class="register__container-bottom-link">
+                Remember your password? <a href="/auth/login">Login</a>
+            </span>
+        </form>
+
+        </div>
+    </div>
+</div>

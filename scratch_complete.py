@@ -12,6 +12,7 @@ import json
 from flask import Flask,request,Response
 from flask_cors import CORS
 from flask import jsonify
+from collections import Counter
 #import request
 app = Flask(__name__)
 CORS(app)

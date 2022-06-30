@@ -107,7 +107,7 @@ exports.dislikeHandle = (req, res) => {
 
 
 exports.nextRepA = (req, res) => {
-    if(dejarecommende == 9){
+    if(dejarecommende == 7){
         myScript.recommendationHandle();
         dejarecommende = 0;
     }

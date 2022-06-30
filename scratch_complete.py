@@ -128,6 +128,54 @@ def give_rec(recipe_id, sig, df_sample):
 
     return df_sample["name"].iloc[recipe_indices]
 
+#-------------------------- Similarités entre les Listes --------------------------#
+
+def most_frequent(List):
+
+    #transforme la liste de liste en liste flat
+    flat_list = []
+    for item in List:
+        flat_list.extend(item)
+    print(flat_list)
+
+    # va compter les occurrences et renvoyer une liste de tuples (x,y)
+    # x = valeur, y = occurrence
+    occ = Counter(flat_list)
+    return occ.most_common(4)
+
+#-------------------------- Transformer liste des likes en listes de recommendations --------------------------#
+
+def like_to_rec(listLikes):
+
+    multiRec = []
+
+    for i in listLikes :
+        multiRec.append(give_rec(i,sig,df))
+
+    return multiRec
+
+#-------------------------- Retourner les Dictionnaires avec les rangs --------------------------#
+
+def give_Dic(list_rec,df):
+    list_dict = []
+    for i in list_rec:
+        print(i)
+        list_dict.extend(df[df['id']==i].to_dict('records'))
+
+        print("test", df[df['id']==i])
+    return list_dict
+
+#-------------------------Liste vide ou non---------------------------#
+
+def list_empty(list):
+    emptyList = []
+
+    if list == emptyList:
+        return True
+    else:
+        return False
+
+
 @app.route("/dashboard",methods=["GET","POST"])
 def getDashboard():
     '''client = pymongo.MongoClient("mongodb://localhost:27017/") 

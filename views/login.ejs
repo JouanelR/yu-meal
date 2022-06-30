@@ -1,31 +1,36 @@
-<div class="row mt-5">
-    <div class="col-md-6 m-auto">
-        <div class="card card-body text-center">
-            <h1 class="mb-3">
-                <img src="/assets/secure-icon.png" alt="icon" width="20%" />
-            </h1>
-            <h2>
-                Login
-            </h2>
+
+    
             <%- include ("./messages") %>
-            <form action="/auth/login" method="POST">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" />
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" class="form-control"
-                        placeholder="Enter Password" />
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Login</button>
+
+            <form action="/auth/login" method="POST" class="login__container" style="margin-top:150px ;">
+
+                        
+                <!-- Subtitle-->
+                <h2 class="login__container-title">
+                    Login
+                </h2>
+
+                <!-- Avatar -->
+                <img class="login__container-logo" src="/assets/ninja2.png" alt="Logo" />
+
+                <!-- Input email-->
+                <label for="login__container-input-title">Email</label>
+                <input type="email" id="email" name="email" class="login__container-input" placeholder="Enter Email" />
+            
+                <!-- Input password-->
+                <label for="login__container-input-title">Password</label>
+                <input type="password" id="password" name="password" class="login__container-input" placeholder="Enter Password" />
+
+                <!-- Login CTA-->
+                <button type="submit" class="login__container-cta login__container-cta--login btn btn-primary btn-block" href="menu">Login</button>
+                <span class ="login__container-bottom-link">
+                    New User? <a href="/auth/register">Register</a>
+                </span>
+                <span class ="login__container-bottom-link">
+                    Forgot Password? <a href="/auth/forgot">Reset</a>
+                </span>
             </form>
-            <p class="mt-4">
-                New User? <a href="/auth/register">Register</a>
-            </p>
-            <p>
-                Forgot Password? <a href="/auth/forgot">Reset</a>
-            </p>
+
         </div>
     </div>
 </div>

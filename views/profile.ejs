@@ -1,0 +1,110 @@
+<%- include("partials/header.ejs"); %>
+    <!-- CSS only -->
+    <!-- body-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="boot.css" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+
+    <!-- Nav joli-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/5.0.0/css/font-awesome.min.css">
+
+    <!-- Icons Header-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<body class="bg" style="background-color: rgb(238, 238, 238); margin-top: 250px;">
+
+    <div class="container">
+        <div class="rounded-3" style="background-color: rgb(255, 255, 255)">
+            <div class="row content">
+                <div class="img_profile">
+                    <img class="d-block mx-auto" src="/assets/ninja2.png" alt="avatar" width=75px >
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="text-sm-center">
+                    <h3>Hello You !</h3>
+                    <h6 >Here you can customize your profile as you wish ;)</h6>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 text-sm-center">
+                    <p>Are you <span style="color: #E96000;">vegan</span> ?</p>
+                    <input type="checkbox" class="vegan" id="vegan">
+                    <label for="vegan"></label>  
+                </div>
+
+                <div class="col-lg-6 text-sm-center">
+                    <p>Are you <span style="color: #E96000;">vegetarian</span> ?</p>
+                    <input type="checkbox" class="vege" id="vege">
+                    <label for="vege"></label>
+                </div>
+            
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-6 text-sm-center">
+                    <p>Are you <span style="color: #E96000;">gluten free</span> ?</p>
+                    <input type="checkbox" class="gf" id="gf">
+                    <label for="gf"></label>
+                </div>
+
+                <div class="col-lg-6 text-sm-center">
+                    <p>Are you <span style="color: #E96000;">meat free</span> ?</p>
+                    <input type="checkbox" class="meat" id="meat">
+                    <label for="meat"></label>
+                </div>
+
+            </div>
+
+
+            <form>
+                <!-- CSS Form-->
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css" integrity="sha512-mR/b5Y7FRsKqrYZou7uysnOdCIJib/7r5QeJMFvLNHNhtye3xJp1TdJVPLtetkukFn227nKpXD9OjUc09lx97Q==" crossorigin="anonymous"
+                referrerpolicy="no-referrer" />
+                <div class="text-sm-center p-4">
+                    <label for="allergic-choices">Are you <span style="color: #E96000;">allergic</span> to any of these ?</label>
+                    <div class="container mt-3 d-flex justify-content-center">
+                        <select class="selectpicker" multiple aria-label="size 3 select example">
+
+                            <option value="egg">Egg</option>
+                            <option value="lactose">Lactose</option>
+                            <option value="nuts">Nuts</option>
+                            <option value="peanuts">Peanuts</option>                                 
+                            <option value="seafood">Seafood</option>
+                            <option value="sesame">Sesame</option>                                    
+                            <option value="soy">Soy</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Script form -->
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js" integrity="sha512-FHZVRMUW9FsXobt+ONiix6Z0tIkxvQfxtCSirkKc5Sb4TKHmqq1dZa8DphF0XqKb3ldLu/wgMa8mT6uXiLlRlw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            </form>
+            
+            <div class="row justify-content-center" >
+                    <button style="width: 170px;" class="login__container-cta login__container-cta--login ">Valider</button>
+            </div>
+            
+            <div class="row justify-content-center mt-6">
+                <a href="/auth/logout" class="btn btn-secondary" style="width:120px ;">Logout</a>
+            </div >
+            <script>
+            $('#vegan').click(function(){
+                    $("#vege").click();
+                    $("#meat").click();
+            })
+
+            </script>
+
+        </div>
+    </div>
+</body>
+
+<%- include("partials/footer.ejs"); %>

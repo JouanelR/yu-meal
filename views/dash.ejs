@@ -10,25 +10,27 @@
         <div class="card card-body text-center">
             <h1 class="mb-3">
                 <img src="/assets/secure-icon.png" alt="icon" width="20%" />
-                
             </h1>
             <h2>
-                <%= id %>
-                <a><input type=”button” value=<%= id %> id = "douille"></a> 
+                <%= donne %> 
+                <a><input type=”button” value= <%=id %>  id = "douille"></a> 
             </h2>
             <h2>
                 <div>Recommandation</div>
             </h2>
             <div class="buttons">
-
             <div class="action_btn">
-            <a><input type=”button” value=”Like” onclick=getDashboard()></a> 
+            <a> <input type=”button” value=”Like”  > </a> 
                 <div id="result-container"></div>
-
+                
                 <p id="saved"></p>
-    
                 </div>
-                <a><input type=”button” value="Like" onclick=newLikes()></a>    
         </div>
     </div>
+    <form action="/dashboard" method="POST">idRecette
+        <input type=”button” value= 124 name= "idRecette"></a> 
+        <input type=”button” value= <%=id %>  name= "id2"></a> 
+        <input type=”button” value= <%=name %>  name= "name"></a> 
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+    </form>
 </div>

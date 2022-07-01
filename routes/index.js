@@ -22,11 +22,19 @@ router.get('/dashboard',ensureAuthenticated,  (req, res) => res.render('dash',{
 
 
 //------------ Register POST Handle ------------//
-router.post('/dashboard',ensureAuthenticated, myScript.dislikeHandle);
+router.post('/dashboard/dislike',ensureAuthenticated, myScript.dislikeHandle);
+router.post('/dashboard/like',ensureAuthenticated, myScript.likeHandle);
+//router.post('/dashboard',ensureAuthenticated, myScript.dislikeHandle);
 
 module.exports = router;
 
 
+//------------ profile route ------------//
+
+router.get('/profile');
+router.get('/profile', ensureAuthenticated, (req, res) => res.render('profile', {
+    name: req.user.name, id : req.user.id, vegan :req.user.vegan, vegetarien : req.user.vegetarien, gluten_free : req.user.gluten_free, egg : req.user.soy, soy : req.user.soy, lactose : req.user.lactose, nuts : req.user.nuts, peanuts : req.user.peanuts, seafood : req.user.seafood, sesame : req.user.sesame
+}));
 
 //const myScript = require('../controllers/script_dash.js');
 /*const myScript = require('../config/dash');

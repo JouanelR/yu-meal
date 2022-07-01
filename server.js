@@ -73,6 +73,8 @@ app.use(function(req, res, next) {
 app.use('/', require('./routes/index'));
 app.use('/auth', require('./routes/auth'));
 app.use('/dashboard', require('./routes/index'));
+app.use('/profile',require('./routes/index'));
+
 
 app.use((req,res,next)=>{
     res.setHeader('Access-Control-Allow-Origin','*');

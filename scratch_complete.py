@@ -50,7 +50,7 @@ def creationDf(listArecommander,userid):
     df = pd.read_csv("RAW_recipes_images.csv")
     
     #supprimer colones inutiles
-    df = df.drop(columns=['contributor_id','n_steps',"contributor_id","submitted","steps","description"])
+    df = df.drop(columns=['contributor_id','n_steps',"contributor_id","submitted","description"])
     
     
     
@@ -124,7 +124,8 @@ def most_frequent(List):
     # va compter les occurrences et renvoyer une liste de tuples (x,y)
     # x = valeur, y = occurrence
     occ = Counter(flat_list)
-    return occ.most_common(4)
+    occList = occ.most_common(4)
+    return [x[0] for x in occList]
 
 #-------------------------- Transformer liste des likes en listes de recommendations --------------------------#
 
@@ -132,7 +133,7 @@ def like_to_rec(listLikes):
 
     multiRec = []
 
-    for i in listLikes :
+    for i in listLikes:
         multiRec.append(give_rec(i,sig,df))
 
     return multiRec
@@ -162,7 +163,7 @@ if __name__ == '__main__' :
     temps = time.time()
     #client = pymongo.MongoClient("mongodb://localhost:27017/")
     #db = client["test"]
-    df = creationDf([137739,496,9447],0)
+    df = creationDf([137739,49,9447,9071,9228,74583,91763,61621,94073,15588],0)
     sig = give_sig(df)
     print(temps-time.time())
     rec = give_rec(9447,sig,df)
@@ -174,13 +175,13 @@ if __name__ == '__main__' :
     listLikes = []
     print(list_empty(listLikes))
     multiRec = like_to_rec(listLikes)
-    #multiRec2 = [[12162, 4, 3], [1216, 95, 4, 58, 95, 3, 4, 4, 3]]
+    multiRec2 = [[12162, 4, 3], [1216, 95, 4, 58, 95, 3, 4, 4, 3]]
     #trouver les plus récurrents
-    #list_rec = most_frequent(multiRec2)
-
-    print("Dict")
-    x = give_Dic([137739,496,9447], df)
+    list_rec = most_frequent(multiRec2)
+    print("liste rec", list_rec)
+    '''print("Dict")
+    x = give_Dic([137739,49,9447,9071,9228,74583,91763,61621,94073,15588], df)
     print("X = ",x)
 
-    print("Image : ", x[2]["Images Solo"])
+    print("Image : ", x[2]["Images Solo"])'''
 #%%

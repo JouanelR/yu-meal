@@ -1,5 +1,5 @@
 const myScript = require('../controllers/script_dash.js');
-
+var listedeslikes;
 const express = require('express');
 const router = express.Router();
 var idA = "62bc09302061c35ea0fbbd8b";
@@ -26,6 +26,7 @@ function sendDataCallback() {
     if (xhr.readyState == 4 && xhr.status == 201) {
         console.log("Creation data received :");
         dd = xhr.responseText
+        console.log("received:",dd);
         var data = JSON.parse(dd);
         data.forEach(function(item, index, array) {
             lrepA.push(item);
@@ -115,16 +116,18 @@ exports.dislikeHandle = (req, res) => {
 
 
 exports.nextRepA = (req, res) => {
-    if(dejarecommende%8 == 0){
+    if(dejarecommende % 4 == 0){
         myScript.recommendationHandle();
         console.log("recommendation");
     }
     repA = lrepA[dejarecommende];
+    //console.log(repA);
+    console.log(lrepA.length,dejarecommende);
     idDeLaRecetteProposee = repA["id"];
     console.log("Ingredients",typeof repA["ingredients"],repA["ingredients"])
     repA["ingredients"] = decompress(repA["ingredients"])
     repA["steps"] = decompress(repA["steps"])
-    console.log(repA);
+    
 }
 
 
@@ -138,4 +141,98 @@ function decompress(chstr){
         result[i] = result[i].replace(" ", '');
     }
     return result;
+}
+
+
+
+
+
+
+const User = require('../models/User');
+exports.confirmHandle = (req, res) => {
+    console.log("confirm");
+    var { vege,vegan,gf } = req.body;
+    var id_confirm=req.user.id
+    var MongoClient = require('mongodb').MongoClient;
+    var url = "mongodb://127.0.0.1:27017/";
+    if (vege.checked === true) {
+        vege = true;
+    }if (vegan.checked === true) {
+        vegan = true;
+    }if (gf.checked === true) {
+        gf = true;
+    }
+    console.log("confirm id : " + id_confirm);
+
+    MongoClient.connect(url, function(err, db, vegan, vege, gf, id_confirm) {
+    
+    if (err) throw err;
+    var dbo = db.db("test");
+    var myquery = { _id: id_confirm };
+    var newvalues = { $set: {vegan: vegan, gluten_free: gf, vegetarien: vege } };
+    
+    dbo.collection("customers").updateOne(myquery, newvalues, function(err, res) {
+    if (err) throw err;
+    console.log("1 document updated");
+    db.close();
+    });
+      
+    console.log("confirm " + vegan + " " + vege + " " + gf );
+    });    
+}
+
+
+
+function tryConfirm(id,vege,vegan,gf) {
+    console.log("confirm");
+    var MongoClient = require('mongodb').MongoClient;
+    var url = "mongodb://127.0.0.1:27017/";
+    console.log("confirm id : " + id_confirm);
+
+    MongoClient.connect(url, function(err, db, vegan, vege, gf, id) {
+        if (err) throw err;
+        var dbo = db.db("test");
+        var myquery = { _id: id};
+        var newvalues = { $set: {vegan: vegan, gluten_free: gf, vegetarien: vege } };
+        
+        dbo.collection("customers").updateOne(myquery, newvalues, function(err, res) {
+        if (err) throw err;
+        console.log("1 document updated");
+        db.close();
+        });
+    });
+}
+
+exports.RecupLike = (req, res) => {
+    console.log("RecupLike");
+    xhr = null;
+    iddd = "62bc09302061c35ea0fbbd8b";
+    var dataToSend = { userid : iddd };
+    if (!dataToSend) {
+        console.log("Data is empty.");            
+    }
+    console.log("Sending data: " + dataToSend);
+    if (!xhr) {
+        // Create a new XMLHttpRequest object 
+        var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+        xhr = new XMLHttpRequest();
+    }
+    //xhr.onreadystatechange = sendDataLikeCallback;
+    
+    xhr.open("POST", "http://localhost:6969/favoris", false);//synchronous
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    // Send the request over the network
+    xhr.send(JSON.stringify({"data": dataToSend}));
+    listedeslikes = xhr.responseText;
+    listedeslikes = JSON.parse(listedeslikes);
+    console.log("received:",listedeslikes.length);
+    res.render('favoris', {
+        listedeslikes : listedeslikes, utils : myScript
+    });
+}
+
+
+
+function returnListeLike(){
+    return listedeslikes;
 }

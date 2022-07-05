@@ -1,0 +1,411 @@
+
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* Reset / Presets */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --orange-color: #E96000;
+    --grey-color: #CCCCCC;
+    --grey-light-color: #f1f1f1;
+    --main-background-color: white; 
+    --text-color: white; 
+}
+
+html {
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+label{
+    padding-top: 15px;
+}
+
+/* Global style */
+.welcome__container,
+.login__container,
+.register__container,
+.forgot__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 1rem;
+    padding: 3rem 0;
+    max-width: 40rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    box-shadow: 0px 2px 20px 5px rgb(200, 200, 200);
+}
+
+.welcome__container-logo,
+.login__container-logo,
+.register__container-logo,
+.forgot__container-logo {
+    height: 7rem;
+    margin-bottom: 2rem;
+}
+
+.welcome__container-cta,
+.login__container-cta,
+.register__container-cta,
+.forgot__container-cta {
+    width: 75%;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    border-radius: 0.3rem;
+    text-decoration: none;
+    display: inline-block;
+    margin: 2rem 1rem 0 1rem;
+    
+}
+
+.welcome__container-cta--login,
+.login__container-cta--login,
+.register__container-cta--login,
+.register__container-cta--register,
+.forgot__container-cta--forgot {
+    color: var(--text-color);
+    background: var(--orange-color);
+}
+
+.welcome__container-cta--login:hover,
+.login__container-cta--login:hover,
+.register__container-cta--login:hover,
+.register__container-cta--register:hover,
+.forgot__container-cta--forgot:hover{
+    transform: translate(3px);
+}
+
+
+
+.welcome__container-cta--register,
+.login__container-cta--register  {
+    color: var(--text-color);
+    background: var(--grey-color);
+}
+
+.welcome__container-cta--register:hover,
+.login__container-cta--register:hover {
+    transform: translateY(3px);
+}
+
+
+.login__container-input-title,
+.register__container-input-title,
+.forgot__container-input-title {
+    width: 75%;
+    text-align: left;
+    margin: 1rem auto 0 auto;
+}
+
+.login__container-input,
+.register__container-input,
+.forgot__container-input {
+    border: none;
+    height: 2rem;
+    width: 75%;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    border-radius: 0.3rem;
+    display: inline-block;
+    margin: 0.5rem 1rem 0 1rem;
+    background-color: var(--grey-light-color)
+}
+.login__container-input,
+.register__container-input,
+.forgot__container-input {
+
+    transform: translate(3px);
+    box-shadow: 0 5px #df9f71;
+
+
+}
+
+.login__container-bottom-link,
+.register__container-bottom-link,
+.forgot__container-bottom-link {
+    margin-top: 2rem;
+}
+
+.login__container-bottom-link > a,
+.register__container-bottom-link > a,
+.forgot__container-bottom-link > a {
+    color: var(--orange-color);
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 0.3rem;
+}
+
+/* Welcome page specific */
+.welcome__container-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+
+
+
+.navbar{
+    width: 100%;
+    background-color: #ffc1ae;
+    box-shadow: 0px 0px 6px rgb(110, 110, 110);
+    background-size: 400%;
+    animation: anim 10s infinite alternate;
+  }
+  
+  @keyframes anim {
+    from {
+      background-position:0%;
+    }
+    to{
+      background-position: 100%;
+    }
+    
+  }
+  
+  footer{
+    margin-top: 80px;
+    width: 100%; 
+  }
+  
+  
+  .img_profile img  {
+    border-radius: 15px;
+  }
+  
+  .row{
+    padding : 15px
+  }
+  
+  /*-----------------------------------------------BOUTON VEGAN---------------------------------------*/
+  input[type="checkbox"].vegan {
+    display: none;
+  }
+  input[type="checkbox"].vegan + label {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 3rem;
+    height: 1.5rem;
+    border-radius: 1.5rem;
+    padding:2px;
+    background-color: #c5c5c5 ;
+    transition: all 0.5s ;
+  }
+  input[type="checkbox"].vegan + label::before {
+    box-sizing: border-box;
+    display: block;
+    content: "";
+    height: calc(1.5rem - 4px);
+    width: calc(1.5rem - 4px);
+    border-radius: 50%;
+    background-color: #fff;
+    transition: all 0.5s ;
+  }
+  input[type="checkbox"].vegan:checked + label {
+    background-color: #00e846 ;
+  }
+  input[type="checkbox"].vegan:checked + label::before {
+    margin-left: 1.5rem ;
+  }
+  
+  /*--------------------------------------Bouton Vegetarian-------------------------------------*/
+  input[type="checkbox"].vege {
+    display: none;
+  }
+  input[type="checkbox"].vege + label {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 3rem;
+    height: 1.5rem;
+    border-radius: 1.5rem;
+    padding:2px;
+    background-color: #c5c5c5 ;
+    transition: all 0.5s ;
+  }
+  input[type="checkbox"].vege + label::before {
+    box-sizing: border-box;
+    display: block;
+    content: "";
+    height: calc(1.5rem - 4px);
+    width: calc(1.5rem - 4px);
+    border-radius: 50%;
+    background-color: #fff;
+    transition: all 0.5s ;
+  }
+  input[type="checkbox"].vege:checked + label {
+    background-color: #00e846 ;
+  }
+  input[type="checkbox"].vege:checked + label::before {
+    margin-left: 1.5rem ;
+  }
+  
+/*-----------------------------------------------------------BOUTON MEAT-------------------------------*/
+
+
+  input[type="checkbox"].meat {
+    display: none;
+  }
+  input[type="checkbox"].meat + label {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 3rem;
+    height: 1.5rem;
+    border-radius: 1.5rem;
+    padding:2px;
+    background-color: #c5c5c5 ;
+    transition: all 0.5s ;
+  }
+  input[type="checkbox"].meat + label::before {
+    box-sizing: border-box;
+    display: block;
+    content: "";
+    height: calc(1.5rem - 4px);
+    width: calc(1.5rem - 4px);
+    border-radius: 50%;
+    background-color: #fff;
+    transition: all 0.5s ;
+  }
+  input[type="checkbox"].meat:checked + label {
+    background-color: #00e846 ;
+  }
+  input[type="checkbox"].meat:checked + label::before {
+    margin-left: 1.5rem ;
+  }
+  
+
+/*---------------------------------------------------BOUTON GLUTEN FREE-------------------------------*/
+  
+  input[type="checkbox"].gf {
+    display: none;
+  }
+  input[type="checkbox"].gf + label {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 3rem;
+    height: 1.5rem;
+    border-radius: 1.5rem;
+    padding:2px;
+    background-color: #c5c5c5 ;
+    transition: all 0.5s ;
+  }
+  input[type="checkbox"].gf + label::before {
+    box-sizing: border-box;
+    display: block;
+    content: "";
+    height: calc(1.5rem - 4px);
+    width: calc(1.5rem - 4px);
+    border-radius: 50%;
+    background-color: #fff;
+    transition: all 0.5s ;
+  }
+  input[type="checkbox"].gf:checked + label {
+    background-color: #00e846 ;
+  }
+  input[type="checkbox"].gf:checked + label::before {
+    margin-left: 1.5rem ;
+  }
+  
+  
+  
+  input[type="checkbox"].gf {
+    display: none;
+  }
+  input[type="checkbox"].gf + label {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 3rem;
+    height: 1.5rem;
+    border-radius: 1.5rem;
+    padding:2px;
+    background-color: #c5c5c5 ;
+    transition: all 0.5s ;
+  }
+  input[type="checkbox"].gf + label::before {
+    box-sizing: border-box;
+    display: block;
+    content: "";
+    height: calc(1.5rem - 4px);
+    width: calc(1.5rem - 4px);
+    border-radius: 50%;
+    background-color: #fff;
+    transition: all 0.5s ;
+  }
+  input[type="checkbox"].gf:checked + label {
+    background-color: #00e846 ;
+  }
+  input[type="checkbox"].gf:checked + label::before {
+    margin-left: 1.5rem ;
+  }
+  
+  
+  
+  /** logo**/
+  .navbar .nav-item i {
+    font-size: 25px;
+  }
+  /** signification des logos**/
+  .navbar .nav-item span {
+    position: relative;
+    top: 3px;
+  }
+  
+  
+  .navbar-nav > a {
+    color: #000000;
+    padding: 8px 15px;
+    font-size: 14px;		
+    margin-left: 50px;
+  }
+  
+  .navbar .navbar-nav > a:hover, .navbar .navbar-nav > a:focus {
+    color:  rgb(187,25,25)  ;
+  }
+  .navbar .navbar-nav > a > i {
+    display: block;
+    text-align: center;
+  }
+  .navbar .nav-item.open > a, .navbar .nav-item.open > a:hover, .navbar .nav-item.open > a:focus {
+    color: rgb(84, 84, 84);
+    background: none !important;
+  }
+  
+  
+  @media (min-width: 1200px){
+    .form-inline .input-group {
+      width: 350px;
+      margin-left: 30px;
+    }
+  }
+  @media (max-width: 1199px){
+    .navbar .navbar-nav > a > i {
+      display: inline-block;			
+      text-align: left;
+      min-width: 30px;
+      position: relative;
+      top: 4px;
+    }
+    .navbar .navbar-collapse {
+      border: none;
+      box-shadow: none;
+      padding: 0;
+    }
+  
+    .navbar .navbar-nav {
+      margin: 8px 0;
+    }
+  
+  }

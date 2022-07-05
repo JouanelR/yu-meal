@@ -1,0 +1,209 @@
+<%- include("partials/header.ejs"); %>
+    <style>
+        .btn-circle.btn-md {
+        width: 80px;
+        height: 80px;
+        padding: 7px 10px;
+        border-radius: 45px;
+        font-size: 10px;
+        text-align: center;
+    }
+
+    .btn-circle.btn-sm {
+        width: 30px;
+        height: 30px;
+        padding: 6px 0px;
+        border-radius: 15px;
+        font-size: 8px;
+        text-align: center;
+    }
+
+    /*.btn-header
+    {
+        margin : 10px;
+    }
+
+    /*.header-nav{
+        position: fixed;
+        width: 100%;
+    }*/
+
+    .navbar{
+        width: 100%;
+        box-shadow: 0px 0px 14px rgb(110, 110, 110);
+        background: linear-gradient(90deg, #ff6d1a, #ee71e1);;
+    }
+    </style>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+     <link rel="stylesheet" type="text/css" href="yumeal.css" />
+ 
+     <!-- Icone -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+     <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">-->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+ 
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+    <body class="bg" style="background-color: rgb(238, 238, 238); margin-top: 350px;">
+
+
+<div class="container all">
+    <div class="rounded-4 border" style="background-color: white;">
+        <div class="row content">
+            <div class="col "> <!-- -sm-5h-100 -->
+                <div class="container">
+                    <div class="col-sm-12 presentation">
+                        <h2 class="recipe-title">
+                            <% if (donne != null) { %>
+                                <%= donne["name"]%>
+                            <% } %>
+                            <% if (donne == null) { %>
+                                Salmon Poke Bowl
+                            <%  } %>
+                        </h2><br>
+                        <% if (donne != null) { %>
+                            <img src= <%= donne["Images Solo"]%> class="img-fluid rounded" alt="Responsive image">
+                        <% } %>
+                        <% if (donne == null) { %>
+                            <img src="https://www.sohealthy.fr/wp-content/uploads/2020/04/40729.jpg" class="img-fluid rounded" alt="Responsive image">
+                        <%  } %>
+                        
+                        <div class="d-flex justify-content-around little-information">
+                            <div class="row">
+                                <div class="col">
+                                    <figure>
+                                        <i class="fa fa-clock-o icone" style="font-size:20px"></i>
+                                        <% if (donne != null) { %>
+                                            <figcaption class="desc-icon"> <%= donne["minutes"]%></figcaption>
+                                        <% } %>
+                                        <% if (donne == null) { %>
+                                            <figcaption class="desc-icon"> 20 min</figcaption>
+                                        <%  } %>
+                                    </figure>
+                                </div>
+                                <div class="col">
+                                    <figure>
+                                        <i class="bi bi-currency-euro icone" style="font-size:20px"></i>
+                                        <!--<% if (donne != null) { %>
+                                            <figcaption class="desc-icon">donne["price"]</figcaption>
+                                        <% } %>
+                                        <% if (donne == null) { %>
+                                            <figcaption class="desc-icon">Bon marché</figcaption>
+                                        <%  } %>-->
+                                        <figcaption class="desc-icon">Bon marché</figcaption>
+                                    </figure>
+                                </div>
+                                <!--<div class="col">
+                                    <span class="desc-icon">Gluten Free</span>
+                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="ingredients">
+                        <h2 class="ingredients-title">Ingredients :</h2><br>
+                        <ul class="ingredients-ul">
+                            <% if (donne != null) { %>
+                                
+
+                                <% for (var i = 0; i < donne["ingredients"].length ; i++) { %>
+                                    <li> <%= donne["ingredients"][i] %> </li>
+                                <% } %>
+                            <% } %>
+                            <% if (donne == null) { %>
+                                <li class="ingredients-li">
+                                    <span>200g de fromage blanc 0%</span>
+                                </li>
+                                <li class="ingredients-li">
+                                    <span>6 courgettes</span>
+                                </li>
+                                <li class="ingredients-li">
+                                    <span>4 tomates</span>
+                                </li>
+                                <li class="ingredients-li">
+                                    <span>50g de farine</span>
+                                </li>
+                                <li class="ingredients-li">
+                                    <span>poivre</span>
+                                </li>
+                                <li class="ingredients-li">
+                                    <span>sel</span>
+                                </li>
+                                <li class="ingredients-li">
+                                    <span>muscade</span>
+                                </li>
+                                <li class="ingredients-li">
+                                    <span>4 oeufs</span>
+                                </li>
+                            <%}%>
+                        </ul>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="preparation">
+                        <h2 class="preparation-title">Preparation :</h2><br>
+                        <ul class="preparation-ul">
+                            <% if (donne != null) { %>
+                                <% for (var i = 0; i < donne["steps"].length ; i++) { %>
+                                    <li> <%= donne["steps"][i] %> </li>
+                                <% } %>
+                            <% } %>
+                            <% if (donne == null) { %>
+                                <li class="preparation-li">
+                                    <span>Battre les oeufs en omelette, ajouter la farine, le fromage blanc et la muscade râpée.</span>
+                                </li>
+                                <li class="preparation-li">
+                                    <span>Nettoyer et couper les courgettes en rondelles (ou râpées), nettoyer et couper les tomates en rondelles.</span>
+                                </li>
+                                <li class="preparation-li">
+                                    <span>Mélanger les courgettes avec la préparation au fromage blanc, saler, poivrer, puis verser le tout dans un moule à gâteau non beurré (mettre du papier cuisson au fond du moule).</span>
+                                </li>
+                                <li class="preparation-li">
+                                    <span>Disposer les tomates en rondelles, sur le dessus de la quiche.</span>
+                                </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col"> <!-- offset-sm-5 position-fixed align-self-center text-center -->
+                <div class="btn-group choice align-self-center" role="group" style="position: fixed; top: 50%; right: 32%;">
+
+                    <a class="btn-choice" > 
+                        
+                        <form action="/dashboard/dislike" method="POST">
+                            <% if (idDeLaRecetteProposee == null) { %>
+                                <input type=”button” value= 124 name= "idRecette"></a>
+                            <% } %>
+                            <% if (idDeLaRecetteProposee != null) { %>
+                                <input type=”button” value= "<%= idDeLaRecetteProposee %>" name= "idRecette"></a>
+                            <% } %>
+                                <input type=”button” value= <%=id %>  name= "id2"></a>  
+                        <button type="submit" class="btn btn-danger btn-circle btn-md text-center"><i class="bi bi-x"></i></button> 
+                        </form>
+                    </a>
+                    <a class="btn-choice" > 
+                        <form action="/dashboard/like" method="POST">
+                            <% if (idDeLaRecetteProposee == null) { %>
+                                <input type=”button” value= 124 name= "idRecette"></a>
+                            <% } %>
+                            <% if (idDeLaRecetteProposee != null) { %>
+                                <input type=”button” value= "<%= idDeLaRecetteProposee %>" name= "idRecette"></a>
+                            <% } %>
+                                <input type=”button” value= <%=id %>  name= "id2"></a>  
+                        <button type="submit"  class="btn btn-success btn-circle btn-md text-center"><i class="bi bi-check"></i></button> 
+                        </form>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("partials/footer.ejs"); %>
+

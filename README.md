@@ -19,4 +19,4 @@ Yu'meal will also recommend to you recipes that are totally random, to make you 
 
 ## !!! Warning !!!!
 
-The Repo does not contain the CSV to make Yu'Meal work as it is too heavy.
+The repospitory does not contain the CSV to make Yu'Meal work as it is too heavy.

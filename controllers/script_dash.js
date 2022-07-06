@@ -1,4 +1,9 @@
 const myScript = require('../controllers/script_dash.js');
+
+
+//var ObjectID = require('mongodb').ObjectID
+
+
 var listedeslikes;
 const express = require('express');
 const router = express.Router();
@@ -149,37 +154,6 @@ function decompress(chstr){
 
 
 const User = require('../models/User');
-exports.confirmHandle = (req, res) => {
-    console.log("confirm");
-    var { vege,vegan,gf } = req.body;
-    var id_confirm=req.user.id
-    var MongoClient = require('mongodb').MongoClient;
-    var url = "mongodb://127.0.0.1:27017/";
-    if (vege.checked === true) {
-        vege = true;
-    }if (vegan.checked === true) {
-        vegan = true;
-    }if (gf.checked === true) {
-        gf = true;
-    }
-    console.log("confirm id : " + id_confirm);
-
-    MongoClient.connect(url, function(err, db, vegan, vege, gf, id_confirm) {
-    
-    if (err) throw err;
-    var dbo = db.db("test");
-    var myquery = { _id: id_confirm };
-    var newvalues = { $set: {vegan: vegan, gluten_free: gf, vegetarien: vege } };
-    
-    dbo.collection("customers").updateOne(myquery, newvalues, function(err, res) {
-    if (err) throw err;
-    console.log("1 document updated");
-    db.close();
-    });
-      
-    console.log("confirm " + vegan + " " + vege + " " + gf );
-    });    
-}
 
 
 
@@ -236,3 +210,49 @@ exports.RecupLike = (req, res) => {
 function returnListeLike(){
     return listedeslikes;
 }
+function parseBool(val) { return val === true || val === "true" }
+
+
+exports.confirmHandle = (req,res) => {
+    console.log("confirm");
+    
+
+    
+
+    var { vega2,vege2,glut2,meat2 } = req.body;
+    console.log(vega2,vege2,glut2,meat2);
+
+    var vega2 = parseBool(vega2);
+    var vege2 = parseBool(vege2);
+    var glut2 = parseBool(glut2);
+    var meat2 = parseBool(meat2);
+
+
+
+    var mongoose = require('mongoose');
+    var id_confirm = mongoose.Types.ObjectId(req.user.id);
+    var MongoClient = require('mongodb').MongoClient;
+    var url = "mongodb://127.0.0.1:27017/";
+
+
+
+    MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("test");
+    var myquery = { _id: id_confirm };
+    var newvalues = { $set: {vegan: vega2, vegetarien: vege2, gluten_free : glut2 } };
+    dbo.collection("users").updateOne(myquery, newvalues, function(err, res) {
+        if (err) throw err;
+        console.log("1 document updated");
+        db.close();
+    });
+    });
+
+
+
+    res.render('profile', {
+        name: req.user.name, id : req.user.id, vegan :req.user.vegan, vegetarien : req.user.vegetarien, gluten_free : req.user.gluten_free, egg : req.user.soy, soy : req.user.soy, lactose : req.user.lactose, nuts : req.user.nuts, peanuts : req.user.peanuts, seafood : req.user.seafood, sesame : req.user.sesame, utils : myScript
+    });
+}
+
+

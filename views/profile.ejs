@@ -1,4 +1,7 @@
-<%- include("partials/header.ejs"); %>
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil - Yumeal</title>
+
     <!-- CSS only -->
     <!-- body-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -12,8 +15,39 @@
     <!-- Icons Header-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-<body class="bg" style="background-color: rgb(238, 238, 238); margin-top: 250px;">
+    <link rel="stylesheet" href="./yumeal.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="yumeal.css" />
+ 
+    <!-- Icone -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 
+
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container" id="Grahim">
+        <div class="logo" >
+                <a href="menu.html"><img src='/assets/logv4.png' height=90px width=auto></a>
+        </div>
+        <div class="navbar-nav ml-auto">
+            <a href="/dashboard" class="nav-item nav-link"><i class="fa fa-utensils"></i><span>Time to Eat</span></a>
+            <a href="#" class="nav-item nav-link"><i class="fa fa-bookmark"></i><span>Saved</span></a>
+            <a href="/profile" class="nav-item nav-link"><i class="fa fa-user-circle-o"></i><span> Profile</span></a>
+        </div>
+    </div>
+</nav>
+    
+
+
+<body class="bg" style="background-color: rgb(238, 238, 238); margin-top: 250px;">
+    <form action="/profile" method="POST" >
     <div class="container">
         <div class="rounded-3" style="background-color: rgb(255, 255, 255)">
             <div class="row content">
@@ -32,13 +66,13 @@
             <div class="row">
                 <div class="col-lg-6 text-sm-center">
                     <p>Are you <span style="color: #E96000;">vegan</span> ?</p>
-                    <input type="checkbox" class="vegan" id="vegan">
+                    <input type="checkbox" class="vegan" id="vegan" name="vegan">
                     <label for="vegan"></label>  
                 </div>
-
+               
                 <div class="col-lg-6 text-sm-center">
                     <p>Are you <span style="color: #E96000;">vegetarian</span> ?</p>
-                    <input type="checkbox" class="vege" id="vege">
+                    <input type="checkbox" class="vege" id="vege" name="vege">
                     <label for="vege"></label>
                 </div>
             
@@ -51,7 +85,7 @@
                     <input type="checkbox" class="gf" id="gf">
                     <label for="gf"></label>
                 </div>
-
+                
                 <div class="col-lg-6 text-sm-center">
                     <p>Are you <span style="color: #E96000;">meat free</span> ?</p>
                     <input type="checkbox" class="meat" id="meat">
@@ -59,9 +93,8 @@
                 </div>
 
             </div>
-
-
-            <form>
+           <%= vegan %> vegan
+                
                 <!-- CSS Form-->
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css" integrity="sha512-mR/b5Y7FRsKqrYZou7uysnOdCIJib/7r5QeJMFvLNHNhtye3xJp1TdJVPLtetkukFn227nKpXD9OjUc09lx97Q==" crossorigin="anonymous"
@@ -81,30 +114,65 @@
                         </select>
                     </div>
                 </div>
+                 
+                    <input type=”button” value= " " name= "vega2" id = "vega2">
 
+                    <input type=”button” value= " " name= "vege2" id = "vege2">
+
+                    <input type=”button” value= " " name= "glut2" id = "glut2">
+                    
+                    <input type=”button” value= " " name= "meat2" id = "meat2">
+
+                   
                 <!-- Script form -->
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js" integrity="sha512-FHZVRMUW9FsXobt+ONiix6Z0tIkxvQfxtCSirkKc5Sb4TKHmqq1dZa8DphF0XqKb3ldLu/wgMa8mT6uXiLlRlw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-            </form>
+                <script>
+                    function aller(){
+                        
+                        var vega = document.getElementById("vegan").checked;
+                        document.getElementById("vega2").value = vega;
+                        console.log(vega);
+
+                        var veg = document.getElementById("vege").checked;
+                        console.log(veg);
+                        document.getElementById("vege2").value = veg;
+
+                        var glut = document.getElementById("gf").checked;
+                        console.log(glut);
+                        document.getElementById("glut2").value = glut;
+
+                        var meat = document.getElementById("meat").checked;
+                        console.log(meat);
+                        document.getElementById("meat2").value = meat;
+
+                        
+                        console.log(vega);
+                        console.log(veg);
+                        console.log(glut);
+                        console.log(meat);
+                        
+
+                        //utils.confirmHandle(vega,veg,glut,meat)
+                    }
+                  
+                </script>
             
             <div class="row justify-content-center" >
-                    <button style="width: 170px;" class="login__container-cta login__container-cta--login ">Valider</button>
+                    <button  type="button" style="width: 170px;" onclick= aller()    class="login__container-cta login__container-cta--login ">Valider </button>
+            </div>
+            <div class="row justify-content-center" >
+                <button type="submit"  style="width: 170px;"  class="login__container-cta login__container-cta--login ">Confirmer </button>
             </div>
             
             <div class="row justify-content-center mt-6">
                 <a href="/auth/logout" class="btn btn-secondary" style="width:120px ;">Logout</a>
             </div >
-            <script>
-            $('#vegan').click(function(){
-                    $("#vege").click();
-                    $("#meat").click();
-            })
-
-            </script>
+            
 
         </div>
     </div>
+    </form>
 </body>
 
-<%- include("partials/footer.ejs"); %>

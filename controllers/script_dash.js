@@ -180,7 +180,7 @@ function tryConfirm(id,vege,vegan,gf) {
 exports.RecupLike = (req, res) => {
     console.log("RecupLike");
     xhr = null;
-    iddd = "62bc09302061c35ea0fbbd8b";
+    iddd = req.user.id;
     var dataToSend = { userid : iddd };
     if (!dataToSend) {
         console.log("Data is empty.");            

@@ -44,7 +44,9 @@ router.post('/profile',ensureAuthenticated, myScript.confirmHandle);
 
 
 
-router.get('/favoris', RecupLike);
+router.get('/favoris', RecupLike, ensureAuthenticated, (req, res) => res.render('favoris', {
+    name: req.user.name, id : req.user.id, vegan :req.user.vegan, vegetarien : req.user.vegetarien, gluten_free : req.user.gluten_free, egg : req.user.soy, soy : req.user.soy, lactose : req.user.lactose, nuts : req.user.nuts, peanuts : req.user.peanuts, seafood : req.user.seafood, sesame : req.user.sesame, utils : myScript
+}));
 
 
 async function likkeListAction(req, res) {

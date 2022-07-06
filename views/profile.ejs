@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
 
     <!-- Nav joli-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/5.0.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/5.1.1/css/font-awesome.min.css">
 
     <!-- Icons Header-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+<<<<<<< HEAD
     <link rel="stylesheet" href="./yumeal.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="yumeal.css" />
@@ -45,29 +46,44 @@
 </nav>
     
 
+=======
+<body class="bg" style="background-color: rgb(238, 238, 238) ; margin-top: 300px;">
+>>>>>>> b644930287b3ec22fe563ffe4a825e042e180627
 
 <body class="bg" style="background-color: rgb(238, 238, 238); margin-top: 250px;">
     <form action="/profile" method="POST" >
     <div class="container">
-        <div class="rounded-3" style="background-color: rgb(255, 255, 255)">
+        <div class="rounded-3" style="background-color: rgb(255, 255, 255); ">
             <div class="row content">
                 <div class="img_profile">
-                    <img class="d-block mx-auto" src="/assets/ninja2.png" alt="avatar" width=75px >
+                    <img class="d-block mx-auto" style="margin-top: 20px;" src="/assets/cooking.png" alt="avatar" width=75px >
                 </div>
             </div>
             
             <div class="row">
                 <div class="text-sm-center">
-                    <h3>Hello You !</h3>
+                    <h3>Hello <%= name %> !</h3>
                     <h6 >Here you can customize your profile as you wish ;)</h6>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 20px">
+                <div class="col text-sm-center">
+                    <h4>Do you have a <span style="color: #E96000;">specific diet</span> ?</h4>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-lg-6 text-sm-center">
+<<<<<<< HEAD
                     <p>Are you <span style="color: #E96000;">vegan</span> ?</p>
                     <input type="checkbox" class="vegan" id="vegan" name="vegan">
                     <label for="vegan"></label>  
+=======
+                  <p>Are you vegan ?</p>
+                    <input type="checkbox" class="vegan" id="vegan">
+                    <label for="vegan"></label>
+>>>>>>> b644930287b3ec22fe563ffe4a825e042e180627
                 </div>
                
                 <div class="col-lg-6 text-sm-center">
@@ -91,7 +107,12 @@
                     <input type="checkbox" class="meat" id="meat">
                     <label for="meat"></label>
                 </div>
+            </div>
 
+            <div class="row" style="margin-top: 30px">
+                <div class="col text-sm-center">
+                    <h4>Are you <span style="color: #E96000;">allergic</span> to any of these ?</h4>
+                </div>
             </div>
            <%= vegan %> vegan
                 

@@ -320,92 +320,204 @@ label{
   }
   
   
+/*--------------------------------------BOUTON egg-------------------------------*/
   
-  input[type="checkbox"].gf {
-    display: none;
-  }
-  input[type="checkbox"].gf + label {
-    box-sizing: border-box;
-    display: inline-block;
-    width: 3rem;
-    height: 1.5rem;
-    border-radius: 1.5rem;
-    padding:2px;
-    background-color: #c5c5c5 ;
-    transition: all 0.5s ;
-  }
-  input[type="checkbox"].gf + label::before {
-    box-sizing: border-box;
-    display: block;
-    content: "";
-    height: calc(1.5rem - 4px);
-    width: calc(1.5rem - 4px);
-    border-radius: 50%;
-    background-color: #fff;
-    transition: all 0.5s ;
-  }
-  input[type="checkbox"].gf:checked + label {
-    background-color: #00e846 ;
-  }
-  input[type="checkbox"].gf:checked + label::before {
-    margin-left: 1.5rem ;
-  }
+input[type="checkbox"].egg {
+  display: none;
+}
+input[type="checkbox"].egg + label {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 3rem;
+  height: 1.5rem;
+  border-radius: 1.5rem;
+  padding:2px;
+  background-color: #c5c5c5 ;
+  transition: all 0.5s ;
+}
+input[type="checkbox"].egg + label::before {
+  box-sizing: border-box;
+  display: block;
+  content: "";
+  height: calc(1.5rem - 4px);
+  width: calc(1.5rem - 4px);
+  border-radius: 50%;
+  background-color: #fff;
+  transition: all 0.5s ;
+}
+input[type="checkbox"].egg:checked + label {
+  background-color: #00e846 ;
+}
+input[type="checkbox"].egg:checked + label::before {
+  margin-left: 1.5rem ;
+}
+
+
+/*--------------------------------------BOUTON lactose-------------------------------*/
   
+input[type="checkbox"].lct {
+  display: none;
+}
+input[type="checkbox"].lct + label {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 3rem;
+  height: 1.5rem;
+  border-radius: 1.5rem;
+  padding:2px;
+  background-color: #c5c5c5 ;
+  transition: all 0.5s ;
+}
+input[type="checkbox"].lct + label::before {
+  box-sizing: border-box;
+  display: block;
+  content: "";
+  height: calc(1.5rem - 4px);
+  width: calc(1.5rem - 4px);
+  border-radius: 50%;
+  background-color: #fff;
+  transition: all 0.5s ;
+}
+input[type="checkbox"].lct:checked + label {
+  background-color: #00e846 ;
+}
+input[type="checkbox"].lct:checked + label::before {
+  margin-left: 1.5rem ;
+}
+
+
+
+/*--------------------------------------BOUTON peanuts-------------------------------*/
   
+input[type="checkbox"].pnuts {
+  display: none;
+}
+input[type="checkbox"].pnuts + label {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 3rem;
+  height: 1.5rem;
+  border-radius: 1.5rem;
+  padding:2px;
+  background-color: #c5c5c5 ;
+  transition: all 0.5s ;
+}
+input[type="checkbox"].pnuts + label::before {
+  box-sizing: border-box;
+  display: block;
+  content: "";
+  height: calc(1.5rem - 4px);
+  width: calc(1.5rem - 4px);
+  border-radius: 50%;
+  background-color: #fff;
+  transition: all 0.5s ;
+}
+input[type="checkbox"].pnuts:checked + label {
+  background-color: #00e846 ;
+}
+input[type="checkbox"].pnuts:checked + label::before {
+  margin-left: 1.5rem ;
+}
+
+/*--------------------------------------BOUTON seafood-------------------------------*/
   
-  /** logo**/
-  .navbar .nav-item i {
-    font-size: 25px;
+input[type="checkbox"].sea {
+  display: none;
+}
+input[type="checkbox"].sea + label {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 3rem;
+  height: 1.5rem;
+  border-radius: 1.5rem;
+  padding:2px;
+  background-color: #c5c5c5 ;
+  transition: all 0.5s ;
+}
+input[type="checkbox"].sea + label::before {
+  box-sizing: border-box;
+  display: block;
+  content: "";
+  height: calc(1.5rem - 4px);
+  width: calc(1.5rem - 4px);
+  border-radius: 50%;
+  background-color: #fff;
+  transition: all 0.5s ;
+}
+input[type="checkbox"].sea:checked + label {
+  background-color: #00e846 ;
+}
+input[type="checkbox"].sea:checked + label::before {
+  margin-left: 1.5rem ;
+}
+
+
+  
+
+/*------------------------------------------------NAVBAR------------------------------------------------*/
+.navbar{
+  width: 100%;
+  box-shadow: 0px 0px 14px rgb(110, 110, 110);
+  background: linear-gradient(90deg, #ff6d1a, #ff4e7a);;
+}
+
+/** taille des icones et du texte**/
+.navbar .nav-item i {
+  font-size: 25px;
+}
+
+/** espacement entre texte et icone**/
+.navbar .nav-item span {
+  position: relative;
+  top: 3px;
+}
+
+/*-------style et position des icones et textes-----*/
+.navbar-nav > a {
+  color: #000000;
+  padding: 8px 15px;
+  font-size: 14px;		
+  margin-left: 30px;
+}
+
+/*--------------------Couleur du hover sur les icones------------*/
+.navbar .navbar-nav > a:hover, .navbar .navbar-nav > a:focus {
+  color:  #fff1f0 ;
+}
+
+/*-----------Icone au dessus et centré du texte--------*/
+.navbar .navbar-nav > a > i {
+  display: block;
+  text-align: center;
+}
+
+/*--------------écran supérieur à 1200px---------*/ 
+@media (min-width: 1200px){
+  .form-inline .input-group {
+    width: 350px;
+    margin-left: 30px;
   }
-  /** signification des logos**/
-  .navbar .nav-item span {
-    position: relative;
-    top: 3px;
-  }
-  
-  
-  .navbar-nav > a {
-    color: #000000;
-    padding: 8px 15px;
-    font-size: 14px;		
-    margin-left: 50px;
-  }
-  
-  .navbar .navbar-nav > a:hover, .navbar .navbar-nav > a:focus {
-    color:  rgb(187,25,25)  ;
-  }
+}
+
+/*------------écran inférieur à 1200px--------*/
+@media (max-width: 990px){
   .navbar .navbar-nav > a > i {
-    display: block;
-    text-align: center;
+    display: inline-block;			
+    text-align: left;
+    min-width: 30px;
+    position: relative;
+    top: 4px;
   }
-  .navbar .nav-item.open > a, .navbar .nav-item.open > a:hover, .navbar .nav-item.open > a:focus {
-    color: rgb(84, 84, 84);
-    background: none !important;
+
+  .navbar .navbar-collapse {
+    border: none;
+    box-shadow: none;
+    padding: 0;
   }
-  
-  
-  @media (min-width: 1200px){
-    .form-inline .input-group {
-      width: 350px;
-      margin-left: 30px;
-    }
+
+  .navbar .navbar-nav {
+    margin: 8px 0;
   }
-  @media (max-width: 1199px){
-    .navbar .navbar-nav > a > i {
-      display: inline-block;			
-      text-align: left;
-      min-width: 30px;
-      position: relative;
-      top: 4px;
-    }
-    .navbar .navbar-collapse {
-      border: none;
-      box-shadow: none;
-      padding: 0;
-    }
-  
-    .navbar .navbar-nav {
-      margin: 8px 0;
-    }
-  
-  }
+}
+
+

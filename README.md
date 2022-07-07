@@ -1,5 +1,8 @@
 # Yumeal
 
+![alt text](https://github.com/JouanelR/yu-meal/blob/main/assets/logv4.png?raw=true)
+
+
 ## What is Yumeal ?
 
 Yu'meal is a web app designed to recommend healthy recipes to its user, based on their previous likes. 

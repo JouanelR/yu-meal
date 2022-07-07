@@ -1,12 +1,15 @@
 
             <%- include ("./messages") %>
-            <form action="/auth/forgot" method="POST" class="forgot__container">
+            <%- include("partials/header_log.ejs"); %>
+
+
+            <form action="/auth/forgot" method="POST" class="forgot__container mx-auto">
                 
                 <!-- Subtitle -->
                 <h2  class="forgot__container-title"> Forgot Password </h2>
 
                 <!-- Avatar -->
-                <img src="/assets/ninja2.png" alt="Avatar" class="forgot__container-logo"/>
+                <img src="/assets/cooking.png" alt="Avatar" class="forgot__container-logo"/>
 
 
                 <!-- Input email -->
@@ -14,7 +17,7 @@
                 <input type="email" id="email" name="email" class="forgot__container-input" placeholder="Enter Email" />
                 
                 <!-- Reset password CTA -->
-                <button type="submit" class="forgot__container-cta forgot__container-cta--forgot btn btn-primary btn-block">Send me a password reset link</button>
+                <button type="submit" style = "background-color: orangered; border: 0ch;" class="forgot__container-cta forgot__container-cta--forgot btn btn-primary btn-block">Send me a password reset link</button>
                 
                 <!-- Bottom links -->
                 <span class="forgot__container-bottom-link">

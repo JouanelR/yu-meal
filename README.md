@@ -1,7 +1,7 @@
 # Yumeal
 
-![alt text](https://github.com/JouanelR/yu-meal/blob/main/assets/logv4.png?raw=true)\n
-![alt text](https://github.com/JouanelR/yu-meal/blob/main/assets/logo_name.png?raw=true)
+![alt text](https://github.com/JouanelR/yu-meal/blob/main/assets/logv4.png?raw=true)<br ![alt text](https://github.com/JouanelR/yu-meal/blob/main/assets/logo_name.png?raw=true) />
+
 
 
 

@@ -2,6 +2,7 @@
 /* Font */
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+
 /* Reset / Presets */
 *,
 *::after,
@@ -34,6 +35,7 @@ label{
     padding-top: 15px;
 }
 
+/*---------------------------Login/register/reset/password-----------------------------*/
 /* Global style */
 .welcome__container,
 .login__container,
@@ -88,6 +90,8 @@ label{
 .register__container-cta--register:hover,
 .forgot__container-cta--forgot:hover{
     transform: translate(3px);
+    color: white;
+
 }
 
 
@@ -101,6 +105,8 @@ label{
 .welcome__container-cta--register:hover,
 .login__container-cta--register:hover {
     transform: translateY(3px);
+    color: white;
+
 }
 
 
@@ -110,6 +116,7 @@ label{
     width: 75%;
     text-align: left;
     margin: 1rem auto 0 auto;
+    
 }
 
 .login__container-input,
@@ -125,10 +132,10 @@ label{
     margin: 0.5rem 1rem 0 1rem;
     background-color: var(--grey-light-color)
 }
+
 .login__container-input,
 .register__container-input,
 .forgot__container-input {
-
     transform: translate(3px);
     box-shadow: 0 5px #df9f71;
 
@@ -144,7 +151,17 @@ label{
 .login__container-bottom-link > a,
 .register__container-bottom-link > a,
 .forgot__container-bottom-link > a {
-    color: var(--orange-color);
+    color:  #E96000;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 0.3rem;
+}
+
+/*  Hover sur les mots register, reset, login sous le form*/
+.login__container-bottom-link > a:hover,
+.register__container-bottom-link > a:hover,
+.forgot__container-bottom-link > a:hover {
+    color:  orangered;
     font-weight: bold;
     text-decoration: none;
     margin-left: 0.3rem;
@@ -158,35 +175,13 @@ label{
 
 
 
-
-.navbar{
-    width: 100%;
-    background-color: #ffc1ae;
-    box-shadow: 0px 0px 6px rgb(110, 110, 110);
-    background-size: 400%;
-    animation: anim 10s infinite alternate;
-  }
-  
-  @keyframes anim {
-    from {
-      background-position:0%;
-    }
-    to{
-      background-position: 100%;
-    }
-    
-  }
-  
+/*-----------------------------------FOOTER-------------------------------------*/
   footer{
     margin-top: 80px;
     width: 100%; 
   }
   
-  
-  .img_profile img  {
-    border-radius: 15px;
-  }
-  
+ /*----------------------------------PAGE PROFILE------------------------------*/
   .row{
     padding : 15px
   }
@@ -461,7 +456,7 @@ input[type="checkbox"].sea:checked + label::before {
   background: linear-gradient(90deg, #ff6d1a, #ff4e7a);;
 }
 
-/** taille des icones et du texte**/
+/** taille des icones**/
 .navbar .nav-item i {
   font-size: 25px;
 }
@@ -519,5 +514,6 @@ input[type="checkbox"].sea:checked + label::before {
     margin: 8px 0;
   }
 }
+
 
 

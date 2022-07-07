@@ -1,7 +1,7 @@
 # Yumeal
 <div class="aligh-center">
 <img src="https://github.com/JouanelR/yu-meal/blob/main/assets/logv4.png" width=150px height=auto>
-<img src="https://github.com/JouanelR/yu-meal/blob/main/assets/logo_name.png" width=150px height=auto margin-top=-20px>
+<img src="https://github.com/JouanelR/yu-meal/blob/main/assets/logo_name.png" width=250px height=auto margin-top:-20px>
 </div>
 
 

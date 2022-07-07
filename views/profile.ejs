@@ -35,19 +35,34 @@
                         <h4>Do you have a <span style="color: #E96000;">specific diet</span> ?</h4>
                     </div>
                 </div>
-
+                    
                 <div class="row">
-                    <div class="col-lg-6 text-sm-center">
-                        <p>Are you <span style="color: #E96000;">vegan</span> ?</p>
-                        <input type="checkbox" class="vegan" id="vegan" name="vegan">
-                        <label for="vegan"></label>  
-                    </div>
-
-                    <div class="col-lg-6 text-sm-center">
-                        <p>Are you <span style="color: #E96000;">vegetarian</span> ?</p>
-                        <input type="checkbox" class="vege" id="vege" name="vege">
-                        <label for="vege"></label>
-                    </div>
+                        <div class="col-lg-6 text-sm-center">
+                            <p>Are you <span style="color: #E96000;">vegan</span> ?</p>
+                            <% if(vegan == true){ %>
+                                <input type="checkbox" class="vegan" id="vegan" name="vegan" checked >
+                                <label for="vegan"></label>  
+                                 
+                            <% } %>
+                            <% if(vegan == false){ %>
+                                <input type="checkbox" class="vegan" id="vegan" name="vegan" >
+                                <label for="vegan"></label>  
+                                
+                            <% } %>
+                        </div>
+                        <div class="col-lg-6 text-sm-center">
+                            <p>Are you <span style="color: #E96000;">vegetarian</span> ?</p>
+                            <% if(vegetarien == true){ %>
+                                <input type="checkbox" class="vege" id="vege" checked>
+                                <label for="vege"></label>
+                                 
+                            <% } %>
+                            <% if(vegetarien == false){ %>
+                                <input type="checkbox" class="vege" id="vege" >
+                                <label for="vege"></label>
+                                
+                            <% } %>
+                        </div>
                 
                 </div>
 
@@ -55,14 +70,26 @@
 
                     <div class="col-lg-6 text-sm-center">
                         <p>Are you <span style="color: #E96000;">gluten free</span> ?</p>
-                        <input type="checkbox" class="gf" id="gf">
-                        <label for="gf"></label>
+                        <% if(gluten_free == true){ %>
+                            <input type="checkbox" class="gf" id="gf" checked>
+                            <label for="gf"></label>
+                        <% } %>
+                        <% if(gluten_free == false){ %>
+                            <input type="checkbox" class="gf" id="gf">
+                            <label for="gf"></label>
+                        <% } %>                       
                     </div>
                     
                     <div class="col-lg-6 text-sm-center">
                         <p>Are you <span style="color: #E96000;">meat free</span> ?</p>
-                        <input type="checkbox" class="meat" id="meat">
-                        <label for="meat"></label>
+                        <% if(meat == true){ %>
+                                <input type="checkbox" class="meat" id="meat" checked>
+                                <label for="meat"></label>
+                        <% } %>
+                        <% if(meat == false){ %>                                
+                                <input type="checkbox" class="meat" id="meat" >
+                                <label for="meat"></label>
+                        <% } %>
                     </div>
                 </div>
 
@@ -75,32 +102,62 @@
                 <div style="display: none;"><%= vegan %> vegan</div>
                 
                 <div class="row">
-                    <div class="col-lg-6 text-sm-center">
-                        <p>Egg</p>
-                        <input type="checkbox" class="egg" id="egg">
-                        <label for="egg"></label>
-                    </div>
-                    <div class="col-lg-6 text-sm-center">
-                        <p>Lactose</p>
-                        <input type="checkbox" class="lct" id="lct">
-                        <label for="lct"></label>
-                    </div>  
-                </div>
+                        <div class="col-lg-6 text-sm-center">
+                            <p>Egg</p>
+                                <% if(egg == true){ %>
+                                        <input type="checkbox" class="egg" id="egg" checked>
+                                        <label for="egg"></label>
+                                <% } %>
+                                <% if(egg == false){ %>
+                                        <input type="checkbox" class="egg" id="egg" >
+                                        <label for="egg"></label>
+                                <% } %>
+                        </div> 
 
+                        <div class="col-lg-6 text-sm-center">
+                                <p>Lactose</p>
+                        <% if(lactose == true){ %>
+                                <input type="checkbox" class="lct" id="lct" checked>
+                                <label for="lct"></label>
+                            
+                        <% } %>
+                        <% if(lactose == false){ %>
+                                <input type="checkbox" class="lct" id="lct" >
+                                <label for="lct"></label>
+                            
+                        <% } %>
+                        </div>  
+                </div>
                 <div class="row">
+
                     <div class="col-lg-6 text-sm-center">
                         <p>Peanuts</p>
-                        <input type="checkbox" class="pnuts" id="pnuts">
-                        <label for="pnuts"></label>
-                    </div>
+                            <% if(peanuts == true){ %>
+                                
+                                    <input type="checkbox" class="pnuts" id="pnuts" checked>
+                                    <label for="pnuts"></label>
+                            <% } %>
+                            <% if(peanuts == false){ %>
+                                    <input type="checkbox" class="pnuts" id="pnuts" >
+                                    <label for="pnuts"></label>
+                                
+                            <% } %>
+                    </div> 
                     <div class="col-lg-6 text-sm-center">
                         <p>Seafood</p>
-                        <input type="checkbox" class="sea" id="sea">
-                        <label for="sea"></label>
+                            <% if(seafood == true){ %>
+                                
+                                    <input type="checkbox" class="sea" id="sea" checked>
+                                    <label for="pnuts"></label>
+                            <% } %>
+                            <% if(seafood == false){ %>
+                                    <input type="checkbox" class="sea" id="sea" >
+                                    <label for="sea"></label>
+                                
+                            <% } %>
                     </div>
-
-
-                </div>           
+                </div>
+        
                 <div class="text-center" style="font-size: 16px; margin-bottom:10px; margin-top: 20px;"><h6>Please validate then confirm your choices</h6></div>
                 <div class="row justify-content-center" >
                     <button  type="button" style="width:120px; " onclick= aller() class="btn btn-secondary">Validate</button>
@@ -140,6 +197,7 @@
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js" integrity="sha512-FHZVRMUW9FsXobt+ONiix6Z0tIkxvQfxtCSirkKc5Sb4TKHmqq1dZa8DphF0XqKb3ldLu/wgMa8mT6uXiLlRlw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
                 <script>
+
                     function aller(){
                         
                         var vega = document.getElementById("vegan").checked;

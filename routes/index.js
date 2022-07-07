@@ -34,7 +34,7 @@ module.exports = router;
 
 //router.get('/profile');
 router.get('/profile', ensureAuthenticated, (req, res) => res.render('profile', {
-    name: req.user.name, id : req.user.id, vegan :req.user.vegan, vegetarien : req.user.vegetarien, gluten_free : req.user.gluten_free, egg : req.user.soy, soy : req.user.soy, lactose : req.user.lactose, nuts : req.user.nuts, peanuts : req.user.peanuts, seafood : req.user.seafood, sesame : req.user.sesame, utils : myScript
+    name: req.user.name, id : req.user.id, vegan :req.user.vegan, vegetarien : req.user.vegetarien, gluten_free : req.user.gluten_free, egg : req.user.egg, lactose : req.user.lactose, nuts : req.user.nuts, peanuts : req.user.peanuts, seafood : req.user.seafood, meat: req.user.meat, utils : myScript
 }));
 
 router.post('/profile',ensureAuthenticated, myScript.confirmHandle);

@@ -120,7 +120,7 @@ exports.nextRepA = (req, res) => {
         myScript.RecupRecommendation();
         console.log("first recommendation");
     }
-    else if(dejarecommende % 4 == 0 && init == 1){
+    else if(dejarecommende % 7 == 0 && init == 1){
         myScript.recommendationHandle();
         console.log("recommendation");
     }
@@ -218,7 +218,7 @@ exports.confirmHandle = (req,res) => {
 
     
 
-    var { vega2,vege2,glut2,meat2,egg2,lct2,pnuts2,sea2 } = req.body;
+    var { vega2,vege2,glut2,meat2,egg2,lct2,pnuts2,sea2,meat2 } = req.body;
     console.log(vega2,vege2,glut2,meat2,egg2,lct2,pnuts2,sea2);
 
     var vega2 = parseBool(vega2);
@@ -229,6 +229,7 @@ exports.confirmHandle = (req,res) => {
     var lct2 = parseBool(lct2);
     var pnuts2 = parseBool(pnuts2);
     var sea2 = parseBool(sea2);
+    var meat2 = parseBool(meat2);
 
 
 
@@ -243,7 +244,7 @@ exports.confirmHandle = (req,res) => {
     if (err) throw err;
     var dbo = db.db("test");
     var myquery = { _id: id_confirm };
-    var newvalues = { $set: {vegan: vega2, vegetarien: vege2, gluten_free : glut2, egg: egg2, lactose: lct2, peanuts: pnuts2, seafood:sea2 } };
+    var newvalues = { $set: {vegan: vega2, vegetarien: vege2, gluten_free : glut2, egg: egg2, lactose: lct2, peanuts: pnuts2, seafood:sea2, meat:meat2 } };
     dbo.collection("users").updateOne(myquery, newvalues, function(err, res) {
         if (err) throw err;
         console.log("1 document updated");
@@ -252,9 +253,9 @@ exports.confirmHandle = (req,res) => {
     });
 
 
-
+   
     res.render('profile', {
-        name: req.user.name, id : req.user.id, vegan :req.user.vegan, vegetarien : req.user.vegetarien, gluten_free : req.user.gluten_free, lactose : req.user.lactose, nuts : req.user.nuts, peanuts : req.user.peanuts, seafood : req.user.seafood, utils : myScript
+        name: req.user.name, id : req.user.id, vegan :req.user.vegan, vegetarien : req.user.vegetarien, gluten_free : req.user.gluten_free, lactose : req.user.lactose, nuts : req.user.nuts, peanuts : req.user.peanuts, seafood : req.user.seafood,egg: req.user.egg, meat: req.user.meat, utils : myScript
     });
 }
 

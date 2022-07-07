@@ -40,7 +40,8 @@ router.get('/profile', ensureAuthenticated, (req, res) => res.render('profile', 
 router.post('/profile',ensureAuthenticated, myScript.confirmHandle);
 
 
-
+//------------ about route ------------//
+router.get('/about', ensureAuthenticated, (req, res) => res.render('about'))
 
 
 

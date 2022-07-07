@@ -14,26 +14,42 @@
 
     <style>
         .list_like img{
-            max-width: 200px;
+            max-width: 220px;
             height: auto;
+        }
+        .list_like{
+            display: flex ;
+            border: 3px;
+            border-color: black;
+            max-width: fit-content;
+        }
+
+        hr { 
+            border-top: 2px solid rgb(131, 131, 131); 
         }
 
         
     </style>
 
-<body class="bg" style="background-color: rgb(238, 238, 238) ; margin-top: 350px;">
-    
-    <div class="container">
-        <div class="rounded-3" style="background-color: rgb(255, 255, 255); margin-top: 200px; ">
+<body class="bg" style="background-color: rgb(238, 238, 238) ; margin-top: 140px;">
+    <div style="text-align: center ;"><h3>Your favorite recipes</h3></div>
+        <div class="container">
+            <div class="rounded-3" style="background-color: rgb(255, 255, 255); margin-top: 50px; ">
+                <% listedeslikes.forEach(function(item, index, array) { %>
+                    <div class="row">
+                        <div class="list_like"  style="margin: 5px;">
+                            <img class="img-fluid rounded" alt="Responsive image" src= <%= item["Images Solo"]%>> 
+                            <div style="margin-left: 20px;">
+                                <h4><%= item["name"] %></h4>
+                                <p><i class="fa fa-clock-o icone" style="margin-top: 10px ;"></i> <%= item["minutes"] %> minutes</p>
+                                <p>Bon marché</p>
+                                <div style="font-size:12px ;"><%= item["steps"] %></div>
+                            </div>
 
-            <% listedeslikes.forEach(function(item, index, array) { %>
-                <div class="row">
-                    <div class="list_like">
-                        <img class="img-fluid rounded" alt="Responsive image" src= <%= item["Images Solo"]%>> 
-                        <h4><%= item["name"] %></h4>
+                        </div>                            
+                        <div style="margin-top: 20px ;"><hr></div>
                     </div>
-                </div>
-            <% }); %>
+                <% }); %>
         </div>
     </div>
    

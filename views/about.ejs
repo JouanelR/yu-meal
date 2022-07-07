@@ -1,0 +1,152 @@
+<%- include("partials/header.ejs"); %>
+
+<style>
+
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+IMG.image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+ }
+
+.about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #5d4f47;
+    color: white;
+  }
+    
+.container_about::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.title {
+    color: grey;
+}
+
+.button_about {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    margin-left: -15px;
+    color: white;
+    background-color: rgb(225, 129, 87);
+    text-align: center;
+    cursor: pointer;
+    width: 160px;
+    border-radius: 15px;
+}
+
+.button_about:hover {
+    transform: translateY(3px);  
+    background-color: rgb(218, 86, 38);
+}
+
+
+
+
+  </style>
+
+<body style="background-color:#efefef; margin-top: 360px;" >
+    
+    <div class="container_about all">
+        <div  class="rounded-4 " style = "margin-top: 60px; margin-bottom: 20px; text-align: center;"  >
+            <h3 style="text-align:center;">Our Project</h3>
+            <p style="font-size: 18px; margin-left: 55px; margin-right: 55px;">Yumeal is a recipe recommendation web application developed by Datapero. This project answers the problematic given by the MasterCamp DataScience 2022 : propose a solution that suggests healthy, balanced recipes that are both good and virtuous. This web application was made by this &#10084<span style="color: #ff4e7a;">amazing team</span>&#10084</p>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <img class= image src="/assets/Theo.jpg" alt="Théo" style="margin-top: 40px;" }>
+                    <div class="container text-center m-2">
+                        <h2>Théo</h2>
+                        <p class="title">Back-end</p>
+                        <p>Data search and cleaning <br> Recommendation algorithm</p>
+                        <p><a  href="mailto:theo.martin@efrei.net"><button class="button_about">Contact</button></a></p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="column">
+                <div class="card">
+                    <img class= image src="/assets/Romain.jpg" alt="Romain" style="margin-top: 40px;">
+                    <div class="container text-center m-2">
+                        <h2>Romain</h2>
+                        <p class="title">Back-end</p>
+                        <p>Database <br> Back-end JS</p>
+                        <p><a href="mailto:romain.jouanel@efrei.net"><button class="button_about">Contact</button></a></p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="column">
+                <div class="card">
+                    <img class= image src="/assets/Louise.jpg" alt="Louise" style=" margin-top: 40px;">
+                    <div class="container text-center m-2">
+                        <h2>Louise</h2>
+                        <p class="title">Front-end</p>
+                        <p>Front-end HTML CSS, profile page ejs, writing deliverables </p>
+                        <p><a href="mailto:louise.bisbau@efrei.net"><button class="button_about">Contact</button></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="column">
+            <div class="card">
+                <img class= image src="/assets/Arthur.jpg" alt="Arthur" style=" margin-top: 40px;">
+                <div class="container text-center m-2">
+                    <h2>Arthur</h2>
+                    <p class="title">Front-end</p>
+                    <p>Front-end HTML CSS, log-in/register page, writing deliverables </p>
+                    <p><a href="mailto:arthur.godinho@efrei.net"><button class="button_about">Contact</button></a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img class= image src="/assets/Arnaud.jpg" alt="Arnaud" style=" margin-top: 40px;">
+                <div class="container text-center m-2">
+                    <h2>Arnaud</h2>
+                    <p class="title">Front-end</p>
+                    <p>Main page, mock-ups, writing deliverables, project management</p>
+                    <p><a href="mailto:arnaud.teillet@efrei.net"><button class="button_about">Contact</button></a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img class= image src="/assets/Corentin.jpg" alt="Corentin" style=" margin-top: 40px;">
+                <div class="container text-center m-2">
+                    <h2>Corentin</h2>
+                    <p class="title">Back-end</p>
+                    <p>Database <br>Back-end JS  </p>
+                    <p><a href="mailto:corentin.peron@efrei.net"><button class="button_about">Contact</button></a></p>
+                </div>
+            </div>
+        </div>
+    </div> 
+</body>
+
+<%- include("partials/footer.ejs"); %>

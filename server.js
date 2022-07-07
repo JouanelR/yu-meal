@@ -75,7 +75,7 @@ app.use('/auth', require('./routes/auth'));
 app.use('/dashboard', require('./routes/index'));
 app.use('/profile',require('./routes/index'));
 app.use('/favoris',require('./routes/index'));
-
+app.use('/about', require('./routes/index'))
 
 app.use((req,res,next)=>{
     res.setHeader('Access-Control-Allow-Origin','*');

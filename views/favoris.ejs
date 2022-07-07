@@ -12,13 +12,30 @@
     <!-- Icons Header-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-<body class="bg" style="background-color: rgb(238, 238, 238) ; margin-top: 200px;">
-    
-   
+    <style>
+        .list_like img{
+            max-width: 200px;
+            height: auto;
+        }
 
-    <% listedeslikes.forEach(function(item, index, array) { %>
-        <%= item %>        
-    <% }); %>
+        
+    </style>
+
+<body class="bg" style="background-color: rgb(238, 238, 238) ; margin-top: 350px;">
+    
+    <div class="container">
+        <div class="rounded-3" style="background-color: rgb(255, 255, 255); margin-top: 200px; ">
+
+            <% listedeslikes.forEach(function(item, index, array) { %>
+                <div class="row">
+                    <div class="list_like">
+                        <img class="img-fluid rounded" alt="Responsive image" src= <%= item["Images Solo"]%>> 
+                        <h4><%= item["name"] %></h4>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
    
 </body>
 

@@ -7,7 +7,7 @@ const myScript = require('../controllers/script_dash.js');
 var listedeslikes;
 const express = require('express');
 const router = express.Router();
-var idA = "62bc09302061c35ea0fbbd8b";
+var idA = "62c69dc1c5730d5460431197";
 var nameA = "r";
 var repA = {'Unnamed: 0': 0, 'index': 0, 'name': 'arriba   baked winter squash mexican style', 'id': 137739, 'minutes': 55, 'tags': "['60-minutes-or-less', 'time-to-make', 'course', 'main-ingredient', 'cuisine', 'preparation', 'occasion', 'north-american', 'side-dishes', 'vegetables', 'mexican', 'easy', 'fall', 'holiday-event', 'vegetarian', 'winter', 'dietary', 'christmas', 'seasonal', 'squash']", 'nutrition': '[51.5, 0.0, 13.0, 0.0, 2.0, 0.0, 4.0]', 'ingredients': "['winter squash', 'mexican seasoning', 'mixed spice', 'honey', 'butter', 'olive oil', 'salt']", 'n_ingredients': 7, 'Images Solo': 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/13/77/39/picWfGTtA.jpg'};
 var idRecetteA;
@@ -75,7 +75,10 @@ exports.recommendationHandle = (req, res) => {
 const Like = require('../models/likes');
 
 exports.likeHandle = (req, res) => {
-    const { id2,idRecette } = req.body;
+    const { name,id2,idRecette } = req.body;
+    idA = id2;
+    idRecetteA = idRecette["id"];
+    nameA = name;
     const newLike = new Like({
         id_user :id2,
         id_recette : idRecette
@@ -86,7 +89,7 @@ exports.likeHandle = (req, res) => {
     dejarecommende++;
     myScript.nextRepA();
     res.render('dash',{
-        id : idA, name : nameA,  utils: myScript, donne: repA, idDeLaRecetteProposee : idDeLaRecetteProposee
+        id : id2, name : nameA,  utils: myScript, donne: repA, idDeLaRecetteProposee : idDeLaRecetteProposee
     });
 }
 
@@ -108,7 +111,7 @@ exports.dislikeHandle = (req, res) => {
     dejarecommende++;
     myScript.nextRepA();
     res.render('dash',{
-        id : idA, name : nameA,  utils: myScript, donne: repA, idDeLaRecetteProposee : idDeLaRecetteProposee
+        id : id2, name : nameA,  utils: myScript, donne: repA, idDeLaRecetteProposee : idDeLaRecetteProposee
     });
 }
 

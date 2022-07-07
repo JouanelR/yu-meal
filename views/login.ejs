@@ -1,17 +1,18 @@
 
     
             <%- include ("./messages") %>
+            <%- include("partials/header_log.ejs"); %>
 
-            <form action="/auth/login" method="POST" class="login__container" style="margin-top:150px ;">
 
-                        
+            <form action="/auth/login" method="POST" class="login__container mx-auto" style="margin-top:130px; margin-bottom: 30px; ">
+
+                <!-- Avatar -->
+                <img class="login__container-logo" src="/assets/cooking.png" alt="Logo" style="width: 70px; height: auto; margin-bottom: 20px;" />
+                
                 <!-- Subtitle-->
                 <h2 class="login__container-title">
                     Login
                 </h2>
-
-                <!-- Avatar -->
-                <img class="login__container-logo" src="/assets/ninja2.png" alt="Logo" />
 
                 <!-- Input email-->
                 <label for="login__container-input-title">Email</label>
@@ -22,7 +23,7 @@
                 <input type="password" id="password" name="password" class="login__container-input" placeholder="Enter Password" />
 
                 <!-- Login CTA-->
-                <button type="submit" class="login__container-cta login__container-cta--login btn btn-primary btn-block" href="menu">Login</button>
+                <button type="submit"  style="background-color: orangered; border: 0ch;"class="login__container-cta login__container-cta--login btn btn-primary btn-block" href="menu">Login</button>
                 <span class ="login__container-bottom-link">
                     New User? <a href="/auth/register">Register</a>
                 </span>

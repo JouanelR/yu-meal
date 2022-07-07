@@ -66,12 +66,7 @@ const UserSchema = new mongoose.Schema({
     default: false
   },
 
-  sesame: {
-    type: Boolean,
-    default: false
-  },
-
-  soy: {
+  meat: {
     type: Boolean,
     default: false
   }

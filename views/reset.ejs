@@ -1,7 +1,8 @@
 
             
-            <%- include ("./messages") %>
-            <form action="/auth/reset/<%= id %>"  method="POST" class="register__container">
+            <%- include("partials/header_log.ejs"); %>
+
+            <form action="/auth/reset/<%= id %>"  method="POST" class="register__container mx-auto">
                 
             <!-- Subtitle  -->
             <h2 class="register__container-title">
@@ -9,7 +10,7 @@
             </h2>
 
             <!--Avatar -->
-                <img src="/assets/ninja2.png" alt="Logo" class="register__container-logo" />
+                <img src="/assets/cooking.png" alt="Logo" class="register__container-logo" />
             
 
             <!-- Input name  -->
@@ -23,7 +24,7 @@
                       value="<%= typeof password2 != 'undefined' ? password2 : '' %>" />
             
             <!-- Reset password CTA-->
-            <button type="submit" class="btn btn-primary btn-block register__container-cta register__container-cta--register">Reset Password</button>
+            <button type="submit" style="background-color: orangered; border: 0ch;" class="btn btn-primary btn-block register__container-cta register__container-cta--register">Reset Password</button>
             
             <span class="register__container-bottom-link">
                 Remember your password? <a href="/auth/login">Login</a>

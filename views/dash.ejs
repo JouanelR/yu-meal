@@ -1,0 +1,259 @@
+<%- include("partials/header.ejs"); %>
+<style>
+    .btn-circle.btn-md {
+        width: 80px;
+        height: 80px;
+        padding: 7px 10px;
+        border-radius: 45px;
+        font-size: 10px;
+        text-align: center;
+    }
+
+    .btn-circle.btn-sm {
+        width: 30px;
+        height: 30px;
+        padding: 6px 0px;
+        border-radius: 15px;
+        font-size: 8px;
+        text-align: center;
+    }
+
+    .ingredients, .preparation
+    {
+        border-top: 2px solid rgb(0, 0, 0);
+        margin-top: 25px;
+    }
+
+    .recipe-title
+    {
+        font-weight: bold;
+    }
+
+    .ingredients-title,.preparation-title
+    {
+        font-weight : bold;
+        margin-top: 10px;
+    }
+
+    /* Liste préparation */
+    ul.preparation-ul {
+        counter-reset: index;
+        padding: 0; /* à enlever en cas de changement */
+    }
+
+    /* List element */
+    li.preparation-li, li.ingredients-li {
+        counter-increment: index;
+        display: flex;
+        align-items: center;
+        padding: 12px 0;
+        box-sizing: border-box;
+    }
+
+    /* Element counter */
+    li.preparation-li::before {
+        content: counters(index, ".", decimal-leading-zero);
+        font-size: 1.5rem;
+        text-align: right;
+        font-weight: bold;
+        min-width: 50px;
+        padding-right: 12px;
+        font-variant-numeric: tabular-nums;
+        align-self: flex-start;
+        /* Gradient */
+        background-image: linear-gradient(to bottom, aquamarine, orangered);
+        background-attachment: fixed;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    li.preparation-li + li.preparation-li {
+        border-top: 1px solid rgba(253, 0, 0, 0.2);
+    }
+
+    @use postcss-preset-env {
+        stage: 0;
+        autoprefixer: {
+            grid: true;
+        }
+        browsers: last 2 versions
+    }
+
+
+    /* Liste ingrédients */
+
+    li.ingredients-li + li.ingredients-li {
+        border-top: 1px solid rgba(2, 0, 0, 0.2);
+    }
+
+    ul.ingredients-ul {
+        list-style-type: none;
+    }
+
+    ul.ingredients-ul {
+        counter-reset: index;
+    }
+
+</style>
+    
+
+<body class="bg" style="background-color: rgb(238, 238, 238); margin-top: 400px;">
+    <div class="container all h-100">
+        <div class="rounded-4 border" style="background-color: white; margin-top: 280px;">
+            <div class="row content">
+                <div class="col "> <!-- -sm-5h-100 -->
+                    <div class="container">
+                        <div class="col-sm-12 presentation">
+                            <h2 class="recipe-title">
+                                <% if (donne != null) { %>
+                                    <%= donne["name"]%>
+                                <% } %>
+                                <% if (donne == null) { %>
+                                    Salmon Poke Bowl
+                                <%  } %>
+                            </h2>
+                                <% if (donne != null) { %>
+                                    <img  class="img-fluid rounded"  alt="Responsive image" src= <%= donne["Images Solo"]%>>
+                                <% } %>
+                                <% if (donne == null) { %>
+                                    <img src="https://www.sohealthy.fr/wp-content/uploads/2020/04/40729.jpg" class="img-fluid rounded" alt="Responsive image">
+                                <%  } %>
+                            
+                            <div class="d-flex justify-content-around little-information">
+                                <div class="row">
+                                    <div class="col">
+                                        <figure>
+                                            <i class="fa fa-clock-o icone" style="font-size:20px"></i>
+                                            <% if (donne != null) { %>
+                                                <figcaption class="desc-icon"> <%= donne["minutes"]%></figcaption>
+                                            <% } %>
+                                            <% if (donne == null) { %>
+                                                <figcaption class="desc-icon"> 20 min</figcaption>
+                                            <%  } %>
+                                        </figure>
+                                    </div>
+                                    <div class="col">
+                                        <figure>
+                                            <i class="bi bi-currency-euro icone" style="font-size:20px"></i>
+                                            <!--<% if (donne != null) { %>
+                                                <figcaption class="desc-icon">donne["price"]</figcaption>
+                                            <% } %>
+                                            <% if (donne == null) { %>
+                                                <figcaption class="desc-icon">Bon marché</figcaption>
+                                            <%  } %>-->
+                                            <figcaption class="desc-icon">Bon marché</figcaption>
+                                        </figure>
+                                    </div>
+                                    <!--<div class="col">
+                                        <span class="desc-icon">Gluten Free</span>
+                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="ingredients">
+                            <h2 class="ingredients-title">Ingredients :</h2><br>
+                            <ul class="ingredients-ul">
+                                <% if (donne != null) { %>
+                                    
+
+                                    <% for (var i = 0; i < donne["ingredients"].length ; i++) { %>
+                                        <li class="ingredients-li"> <%= donne["ingredients"][i] %> </li>
+                                    <% } %>
+                                <% } %>
+                                <% if (donne == null) { %>
+                                    <li class="ingredients-li">
+                                        <span>200g de fromage blanc 0%</span>
+                                    </li>
+                                    <li class="ingredients-li">
+                                        <span>6 courgettes</span>
+                                    </li>
+                                    <li class="ingredients-li">
+                                        <span>4 tomates</span>
+                                    </li>
+                                    <li class="ingredients-li">
+                                        <span>50g de farine</span>
+                                    </li>
+                                    <li class="ingredients-li">
+                                        <span>poivre</span>
+                                    </li>
+                                    <li class="ingredients-li">
+                                        <span>sel</span>
+                                    </li>
+                                    <li class="ingredients-li">
+                                        <span>muscade</span>
+                                    </li>
+                                    <li class="ingredients-li">
+                                        <span>4 oeufs</span>
+                                    </li>
+                                <%}%>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="preparation">
+                            <h2 class="preparation-title">Preparation :</h2><br>
+                            <ul class="preparation-ul">
+                                <% if (donne != null) { %>
+                                    <% for (var i = 0; i < donne["steps"].length ; i++) { %>
+                                        <li class="preparation-li"> <%= donne["steps"][i] %> </li>
+                                    <% } %>
+                                <% } %>
+                                <% if (donne == null) { %>
+                                    <li class="preparation-li">
+                                        <span>Battre les oeufs en omelette, ajouter la farine, le fromage blanc et la muscade râpée.</span>
+                                    </li>
+                                    <li class="preparation-li">
+                                        <span>Nettoyer et couper les courgettes en rondelles (ou râpées), nettoyer et couper les tomates en rondelles.</span>
+                                    </li>
+                                    <li class="preparation-li">
+                                        <span>Mélanger les courgettes avec la préparation au fromage blanc, saler, poivrer, puis verser le tout dans un moule à gâteau non beurré (mettre du papier cuisson au fond du moule).</span>
+                                    </li>
+                                    <li class="preparation-li">
+                                        <span>Disposer les tomates en rondelles, sur le dessus de la quiche.</span>
+                                    </li>
+                                <% } %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col"> <!-- offset-sm-5 position-fixed align-self-center text-center -->
+                    <div class="btn-group choice align-self-center" role="group" style="position: fixed; top: 50%;">
+
+                        <a class="btn-choice" > 
+                            
+                            <form action="/dashboard/dislike" method="POST" >
+                                
+                                <% if (idDeLaRecetteProposee == null) { %>
+                                    <a><input type=”button” style="display: none; " value= 124 name= "idRecette"></a>
+                                <% } %>
+                                <% if (idDeLaRecetteProposee != null) { %>
+                                    <a><input type=”button” style= "display: none; " value= "<%= idDeLaRecetteProposee %>" name= "idRecette"></a>
+                                <% } %>
+                                    <a><input type=”button” style= "display: none; " value= <%=id %>  name= "id2"></a>  
+                            <button type="submit" style= "margin-left: 150px; font-size: 27px;" class="btn btn-danger btn-circle btn-md"><i class="fa fa-trash"></i></button> 
+                            </form>
+                        </a>
+                        <a class="btn-choice" > 
+                            <form action="/dashboard/like" method="POST">
+                                <% if (idDeLaRecetteProposee == null) { %>
+                                    <a><input type=”button” style= "display: none; " value= 124 name= "idRecette"></a>
+                                <% } %>
+                                <% if (idDeLaRecetteProposee != null) { %>
+                                    <a><input type=”button” style= "display: none; " value= "<%= idDeLaRecetteProposee %>" name= "idRecette"></a>
+                                <% } %>
+                                    <a><input type=”button” style= "display: none; " value= <%=id %>  name= "id2"></a>  
+                            <button type="submit" style= "margin-left: 70px;  font-size: 27px;"class="btn btn-success btn-circle btn-md text-center"><i class="fa fa-utensils"></i></button> 
+                            </form>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<%- include("partials/footer.ejs"); %>
+

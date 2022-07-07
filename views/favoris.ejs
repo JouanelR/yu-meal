@@ -1,0 +1,42 @@
+<%- include("partials/header.ejs"); %>
+    <!-- CSS only -->
+    <!-- body-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="boot.css" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+
+    <!-- Nav joli-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/5.0.0/css/font-awesome.min.css">
+
+    <!-- Icons Header-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <style>
+        .list_like img{
+            max-width: 200px;
+            height: auto;
+        }
+
+        
+    </style>
+
+<body class="bg" style="background-color: rgb(238, 238, 238) ; margin-top: 350px;">
+    
+    <div class="container">
+        <div class="rounded-3" style="background-color: rgb(255, 255, 255); margin-top: 200px; ">
+
+            <% listedeslikes.forEach(function(item, index, array) { %>
+                <div class="row">
+                    <div class="list_like">
+                        <img class="img-fluid rounded" alt="Responsive image" src= <%= item["Images Solo"]%>> 
+                        <h4><%= item["name"] %></h4>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+   
+</body>
+
+<%- include("partials/footer.ejs"); %>

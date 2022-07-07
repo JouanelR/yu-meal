@@ -1,0 +1,243 @@
+<%- include("partials/header.ejs"); %>
+    <!-- CSS only -->
+    <!-- body-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="boot.css" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+
+    <!-- Nav joli-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/5.1.1/css/font-awesome.min.css">
+
+    <!-- Icons Header-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<body class="bg" style="background-color: rgb(238, 238, 238) ; margin-top: 400px;">
+
+    <form action="/profile" method="POST" >
+        <div class="container">
+            <div class="rounded-3" style="background-color: rgb(255, 255, 255); ">
+                <div class="row content">
+                    <div class="img_profile">
+                        <img class="d-block mx-auto" style="margin-top: 20px;" src="/assets/cooking.png" alt="avatar" width=75px >
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="text-sm-center">
+                        <h3>Hello <%= name %> !</h3>
+                        <h6 >Here you can customize your profile as you wish ;)</h6>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 20px">
+                    <div class="col text-sm-center">
+                        <h4>Do you have a <span style="color: #E96000;">specific diet</span> ?</h4>
+                    </div>
+                </div>
+                    
+                <div class="row">
+                        <div class="col-lg-6 text-sm-center">
+                            <p>Are you <span style="color: #E96000;">vegan</span> ?</p>
+                            <% if(vegan == true){ %>
+                                <input type="checkbox" class="vegan" id="vegan" name="vegan" checked >
+                                <label for="vegan"></label>  
+                                 
+                            <% } %>
+                            <% if(vegan == false){ %>
+                                <input type="checkbox" class="vegan" id="vegan" name="vegan" >
+                                <label for="vegan"></label>  
+                                
+                            <% } %>
+                        </div>
+                        <div class="col-lg-6 text-sm-center">
+                            <p>Are you <span style="color: #E96000;">vegetarian</span> ?</p>
+                            <% if(vegetarien == true){ %>
+                                <input type="checkbox" class="vege" id="vege" checked>
+                                <label for="vege"></label>
+                                 
+                            <% } %>
+                            <% if(vegetarien == false){ %>
+                                <input type="checkbox" class="vege" id="vege" >
+                                <label for="vege"></label>
+                                
+                            <% } %>
+                        </div>
+                
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-6 text-sm-center">
+                        <p>Are you <span style="color: #E96000;">gluten free</span> ?</p>
+                        <% if(gluten_free == true){ %>
+                            <input type="checkbox" class="gf" id="gf" checked>
+                            <label for="gf"></label>
+                        <% } %>
+                        <% if(gluten_free == false){ %>
+                            <input type="checkbox" class="gf" id="gf">
+                            <label for="gf"></label>
+                        <% } %>                       
+                    </div>
+                    
+                    <div class="col-lg-6 text-sm-center">
+                        <p>Are you <span style="color: #E96000;">meat free</span> ?</p>
+                        <% if(meat == true){ %>
+                                <input type="checkbox" class="meat" id="meat" checked>
+                                <label for="meat"></label>
+                        <% } %>
+                        <% if(meat == false){ %>                                
+                                <input type="checkbox" class="meat" id="meat" >
+                                <label for="meat"></label>
+                        <% } %>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 30px">
+                    <div class="col text-sm-center">
+                        <h4>Are you <span style="color: #E96000;">allergic</span> to any of these ?</h4>
+                    </div>
+                </div>
+
+                <div style="display: none;"><%= vegan %> vegan</div>
+                
+                <div class="row">
+                        <div class="col-lg-6 text-sm-center">
+                            <p>Egg</p>
+                                <% if(egg == true){ %>
+                                        <input type="checkbox" class="egg" id="egg" checked>
+                                        <label for="egg"></label>
+                                <% } %>
+                                <% if(egg == false){ %>
+                                        <input type="checkbox" class="egg" id="egg" >
+                                        <label for="egg"></label>
+                                <% } %>
+                        </div> 
+
+                        <div class="col-lg-6 text-sm-center">
+                                <p>Lactose</p>
+                        <% if(lactose == true){ %>
+                                <input type="checkbox" class="lct" id="lct" checked>
+                                <label for="lct"></label>
+                            
+                        <% } %>
+                        <% if(lactose == false){ %>
+                                <input type="checkbox" class="lct" id="lct" >
+                                <label for="lct"></label>
+                            
+                        <% } %>
+                        </div>  
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-6 text-sm-center">
+                        <p>Peanuts</p>
+                            <% if(peanuts == true){ %>
+                                
+                                    <input type="checkbox" class="pnuts" id="pnuts" checked>
+                                    <label for="pnuts"></label>
+                            <% } %>
+                            <% if(peanuts == false){ %>
+                                    <input type="checkbox" class="pnuts" id="pnuts" >
+                                    <label for="pnuts"></label>
+                                
+                            <% } %>
+                    </div> 
+                    <div class="col-lg-6 text-sm-center">
+                        <p>Seafood</p>
+                            <% if(seafood == true){ %>
+                                
+                                    <input type="checkbox" class="sea" id="sea" checked>
+                                    <label for="sea"></label>
+                            <% } %>
+                            <% if(seafood == false){ %>
+                                    <input type="checkbox" class="sea" id="sea" >
+                                    <label for="sea"></label>
+                                
+                            <% } %>
+                    </div>
+                </div>
+        
+                <div class="text-center" style="font-size: 16px; margin-bottom:10px; margin-top: 20px;"><h6>Please validate then confirm your choices</h6></div>
+                <div class="row justify-content-center" >
+                    <button  type="button" style="width:120px; " onclick= aller() class="btn btn-secondary">Validate</button>
+                <div class="row justify-content-center" >
+                    <button type="submit"  style="width: 200px; margin-top: 20px; border: 0cm; font-size: 18px;"  class="login__container-cta login__container-cta--login ">Confirm</button>
+                </div>
+
+                <div class="row" style="margin-top: 40px;">
+
+                    <div class="col-lg-6 text-sm-center">
+                        <button type="reset" class="btn btn-secondary" style="width:180px; background-color: lightgray; color: black; margin-bottom: 20px;">Reset your account</button>
+                    </div>
+
+                    <div class="col-lg-6 text-sm-center">
+                        <a href="/auth/logout"> <button class="btn btn-secondary" style="width:180px; background-color: lightgray; color: black; margin-bottom: 20px;">Logout</button></a>
+                    </div>
+
+                </div>
+                <input type=”button” value= " " name= "vega2" id = "vega2">
+
+                    <input type=”button” value= " " name= "vege2" id = "vege2">
+
+                    <input type=”button” value= " " name= "glut2" id = "glut2">
+                    
+                    <input type=”button” value= " " name= "meat2" id = "meat2">
+
+                    <input type=”button” value= " " name= "egg2" id = "egg2">
+
+                    <input type=”button” value= " " name= "lct2" id = "lct2">
+
+                    <input type=”button” value= " " name= "pnuts2" id = "pnuts2">
+
+                    <input type=”button” value= " " name= "sea2" id = "sea2">
+                    
+                <!-- Script form -->
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js" integrity="sha512-FHZVRMUW9FsXobt+ONiix6Z0tIkxvQfxtCSirkKc5Sb4TKHmqq1dZa8DphF0XqKb3ldLu/wgMa8mT6uXiLlRlw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                <script>
+
+                    function aller(){
+                        
+                        var vega = document.getElementById("vegan").checked;
+                        document.getElementById("vega2").value = vega;
+                        console.log(vega);
+                        var veg = document.getElementById("vege").checked;
+                        console.log(veg);
+                        document.getElementById("vege2").value = veg;
+                        var glut = document.getElementById("gf").checked;
+                        console.log(glut);
+                        document.getElementById("glut2").value = glut;
+                        var meat = document.getElementById("meat").checked;
+                        console.log(meat);
+                        document.getElementById("meat2").value = meat;
+                        var egg = document.getElementById("egg").checked;
+                        console.log(egg);
+                        document.getElementById("egg2").value = egg;
+                        var lct = document.getElementById("lct").checked;
+                        console.log(lct);
+                        document.getElementById("lct2").value = lct;
+                        var pnuts = document.getElementById("pnuts").checked;
+                        console.log(pnuts);
+                        document.getElementById("pnuts2").value = pnuts;
+                        var sea = document.getElementById("sea").checked;
+                        console.log(sea);
+                        document.getElementById("sea2").value = sea;
+
+                        
+                        console.log(vega);
+                        console.log(veg);
+                        console.log(glut);
+                        console.log(meat);
+                        
+                        //utils.confirmHandle(vega,veg,glut,meat)
+                    }
+                    
+                </script>
+            </div>
+        </div>
+    </form>
+</body>
+
+<%- include("partials/footer.ejs"); %>

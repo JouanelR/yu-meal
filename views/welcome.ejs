@@ -1,17 +1,20 @@
 
-
-    <div class="welcome__container">
+    <%- include("partials/header_log.ejs"); %>
+    <div class="welcome__container mx-auto ">
         <!-- Logo -->
-        <h1><img class="welcome__container-logo" src="/assets/ninja2.png" alt="Logo" /></h1>
+        <img class="welcome__container-logo" src="/assets/cooking.png" alt="Logo" style="width: 80px; height: auto; margin-top: 0px; margin-bottom: 30px;" />
+        
+        <!-- Welcome-->
+        <h4 style="margin-bottom: 20px"> Hello you ! Welcome to Yumeal, the new recipe recommendation web application</h4>
 
-        <!-- Subtitle -->
-        <p class="welcome__container-subtitle">Login to an existing account or register</p>
-
+        <h6>Before discovering your recipes, log in you or create an account</h6>
+        
         <!-- Login CTA -->
-        <a class="welcome__container-cta welcome__container-cta--login" href="/auth/login"  class="btn btn-primary btn-block" >Login</a>
+        <a class="welcome__container-cta welcome__container-cta--login" href="/auth/login"  class="btn btn-primary btn-block" style="background-color: orangered;">Login</a>
 
         <!-- Register CTA -->
         <a class="welcome__container-cta welcome__container-cta--register" href="/auth/register" class="btn btn-secondary btn-block mb-2">Register</a>
     </div>
+
 
 

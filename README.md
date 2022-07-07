@@ -1,8 +1,8 @@
 # Yumeal
 
 <img src="https://github.com/JouanelR/yu-meal/blob/main/assets/logv4.png" width=150px height=auto>
+<img src="https://github.com/JouanelR/yu-meal/blob/main/assets/logo_name.png" width=50px height=auto>
 
-![alt text](https://github.com/JouanelR/yu-meal/blob/main/assets/logo_name.png?raw=true)
 
 
 
